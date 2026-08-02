@@ -102,6 +102,7 @@ All annotations are **off by default**. A calendar's minimum job is to show date
 | `font` | *(none)* | `noto-sans-jp` embeds a subset so the text looks identical everywhere |
 | `rokuyo` | `false` | Six-day cycle (大安, 仏滅, …) |
 | `solar_terms` | `false` | The 24 solar terms — 24 days a year |
+| `lunar_date` | `false` | The lunisolar date, as `6/20`; a leap month reads `閏6/20` |
 | `moon` | `false` | Moon phase drawn in each cell |
 | `moon_age` | `false` | Numeric moon age |
 | `moon_amber` | `false` | Fill the lit face amber instead of the text colour |
@@ -117,7 +118,7 @@ the Japanese lunisolar calendar is reckoned at 135°E and does not follow the vi
 `timezone` only decides which day gets highlighted.
 
 **On `annotation_mode`.** In `priority` mode the ranking is
-holiday → solar term → lucky → unlucky → rokuyō → moon age. In `stack` mode every
+holiday → solar term → lucky → unlucky → rokuyō → lunisolar date → moon age. In `stack` mode every
 applicable note is drawn, packed from the top. Reserved height comes from the
 configuration, never the content, so the image is the same height every month.
 
@@ -157,6 +158,20 @@ Edo period. Meanings below follow *Ansei Zassho* as reproduced by Koyomi no Page
 | 不成就日 | fujōju-nichi | "Nothing comes to fruition" |
 | 三隣亡 | sanrinbō | Unfavourable for building. Older almanacs write 三輪宝 and call it a *good* day for it |
 | 受死日 (黒日) | jushi-nichi / kurobi | The most inauspicious. Only funerals are permitted |
+
+### The lunisolar date (旧暦)
+
+Japan used a **lunisolar** calendar until 1873 — months follow the moon, and a leap
+month is inserted every few years to keep the year in step with the sun. It is often
+called 太陰暦 ("lunar calendar"), but that is a different thing: a purely lunar
+calendar has no leap month and drifts about eleven days a year against the seasons.
+
+The dates do not line up with the Gregorian ones at all. 2026-08-02 is the **20th day
+of the 6th lunar month**. Months are 29 or 30 days; a year has 12 or 13 of them.
+
+`lunar_date` prints it as `6/20`, and `閏6/20` when the month is intercalary.
+**Rokuyō is derived from this** — it is `(month + day) mod 6` — so turning both on
+lets you check the rokuyō against the number it came from.
 
 ### Solar terms (二十四節気)
 

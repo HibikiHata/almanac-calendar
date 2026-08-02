@@ -59,6 +59,8 @@ def build_parser() -> argparse.ArgumentParser:
     ann = p.add_argument_group("注記（既定はすべてオフ）")
     ann.add_argument("--rokuyo", action="store_true", help="六曜を出す")
     ann.add_argument("--solar-terms", action="store_true", help="二十四節気を出す")
+    ann.add_argument("--lunar-date", action="store_true",
+                     help="旧暦（天保暦）の月日を出す。閏月は 閏6/20 の形")
     ann.add_argument("--moon", action="store_true", help="月の満ち欠けを描く")
     ann.add_argument("--moon-age", action="store_true", help="月齢の数値を出す")
     ann.add_argument("--moon-position", default="corner", help="corner | below")
@@ -95,6 +97,7 @@ def main(argv: list[str] | None = None) -> int:
             font=args.font,
             show_rokuyo=args.rokuyo,
             show_solar_terms=args.solar_terms,
+            show_lunar_date=args.lunar_date,
             show_moon=args.moon,
             show_moon_age=args.moon_age,
             moon_position=args.moon_position,

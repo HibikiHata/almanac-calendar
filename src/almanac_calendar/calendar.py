@@ -112,7 +112,8 @@ MOON_INSET = 3
 def _annotated(config: WidgetConfig) -> bool:
     return (config.show_rokuyo or config.show_solar_terms
             or config.show_moon_age or config.show_holiday_names
-            or config.show_lucky_days or config.show_unlucky_days)
+            or config.show_lucky_days or config.show_unlucky_days
+            or config.show_lunar_date)
 
 
 def _holiday(day: date, config: WidgetConfig) -> str | None:
@@ -137,7 +138,8 @@ def annotation_lines(config: WidgetConfig) -> int:
     # **1行ずつに切る**。あふれた分は描画側が優先順で捨てる
     almanac = int(config.show_lucky_days) + int(config.show_unlucky_days)
     return sum((config.show_holiday_names, config.show_solar_terms,
-                config.show_rokuyo, config.show_moon_age)) + almanac
+                config.show_rokuyo, config.show_lunar_date,
+                config.show_moon_age)) + almanac
 
 
 def _cell_height(config: WidgetConfig) -> int:
@@ -178,6 +180,11 @@ def _annotations(day: date, config: WidgetConfig) -> list[tuple[str, str]]:
             out += [("unlucky", short(n)) for n in reading.unlucky]
     if config.show_rokuyo:
         out.append(("rokuyo", rokuyo_of(gregorian_to_lunar(day))))
+    if config.show_lunar_date:
+        # 六曜の下に置く。六曜がここから導かれる値なので、根拠として読める
+        lunar = gregorian_to_lunar(day)
+        leap = "閏" if lunar.is_leap_month else ""
+        out.append(("lunar", f"{leap}{lunar.month}/{lunar.day}"))
     if config.show_moon_age:
         # 小数第1位まで。整数に丸めると朔と晦日の区別がつかなくなる
         out.append(("moon_age", f"{moon_age(day):.1f}"))

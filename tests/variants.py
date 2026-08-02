@@ -79,6 +79,11 @@ VARIANTS: dict[str, tuple[dict, str]] = {
     "moon-amber-below-light": ({"show_moon": True, "moon_amber": True,
                                 "moon_position": "below",
                                 "show_rokuyo": True}, "light"),
+    "lunar-date-light": ({"show_lunar_date": True}, "light"),
+    "lunar-date-rokuyo-light": ({"show_lunar_date": True, "show_rokuyo": True,
+                                 "annotation_mode": "stack"}, "light"),
+    "lunar-date-rokuyo-dark": ({"show_lunar_date": True, "show_rokuyo": True,
+                                "annotation_mode": "stack"}, "dark"),
     "moon-amber-below-dark": ({"show_moon": True, "moon_amber": True,
                                "moon_position": "below",
                                "show_rokuyo": True}, "dark"),
@@ -107,6 +112,8 @@ PREVIEW_SECTIONS: list[tuple[str, list[str]]] = [
      ["embedded-font-light"]),
     ("六曜（S4）。既定では出さない",
      ["rokuyo-light", "rokuyo-dark"]),
+    ("旧暦（天保暦）の月日。六曜はここから導かれるので、併記すると根拠が読める",
+     ["lunar-date-light", "lunar-date-rokuyo-light", "lunar-date-rokuyo-dark"]),
     ("二十四節気（S5b）。年24日だけに付く。六曜と併用すると節気を優先する",
      ["solar-terms-light", "rokuyo-terms-light", "rokuyo-terms-dark",
       "rokuyo-font-light"]),
@@ -138,6 +145,8 @@ SECTION_TITLES_EN: dict[str, str] = {
     "フォント埋め込み（S-pub。CJKフォントの無い環境でも同じ字面になる）":
         "Embedded font subset",
     "六曜（S4）。既定では出さない": "Rokuyō",
+    "旧暦（天保暦）の月日。六曜はここから導かれるので、併記すると根拠が読める":
+        "Lunisolar date",
     "月の満ち欠け（S5）。形は各マスの右上、月齢は注記行":
         "Moon phase and moon age",
     "二十四節気（S5b）。年24日だけに付く。六曜と併用すると節気を優先する":

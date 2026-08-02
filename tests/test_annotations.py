@@ -292,3 +292,59 @@ class TestMoonOptions:
     def test_belowにはshow_moonが要る(self):
         with pytest.raises(ValueError, match="show_moon"):
             WidgetConfig(moon_position="below")
+
+
+class TestLunarDate:
+    """旧暦（天保暦）の月日。**六曜はここから導かれる**。
+
+    表示形式が数字なのはマス幅の制約。漢数字の「六月二十日」は9px×5字＝45pxで
+    40pxのマスに入らない。`6/20` なら半角なので収まる。
+    """
+
+    def test_既定では出さない(self):
+        """SVG全体を検索すると閉じタグやxmlnsのURLに `/` が出るので、
+        注記そのもの（font-size=9 のテキスト）の有無で判定する。"""
+        import re
+        assert not re.findall(r'font-size="9"[^>]*>([^<]+)</text>', svg())
+
+    def test_有効にすると各日に出る(self):
+        import re
+        out = svg(show_lunar_date=True)
+        values = re.findall(r'font-size="9"[^>]*>([^<]+)</text>', out)
+        assert len(values) == 31
+        assert all(re.fullmatch(r"閏?\d{1,2}/\d{1,2}", v) for v in values), values
+
+    def test_2026年8月1日は旧暦6月19日(self):
+        """六曜の赤口と整合する: (6+19) mod 6 = 1 → ROKUYO[1] = 赤口。"""
+        assert "6/19" in svg(show_lunar_date=True)
+
+    def test_六曜と併記すると根拠が読める(self):
+        out = svg(show_lunar_date=True, show_rokuyo=True, annotation_mode="stack")
+        assert "6/19" in out and "赤口" in out
+
+    def test_閏月には閏が付く(self):
+        """2025年は閏6月がある年。閏月であることが表示から分かること。"""
+        out = render(dt.date(2025, 8, 1), theme=LIGHT,
+                     config=WidgetConfig(show_lunar_date=True)).decode("utf-8")
+        assert "閏6/" in out
+
+    def test_閏でない月には閏が付かない(self):
+        assert "閏" not in svg(show_lunar_date=True)
+
+    def test_月をまたぐと旧暦の月も進む(self):
+        import re
+        out = svg(show_lunar_date=True)
+        months = {v.split("/")[0] for v in
+                  re.findall(r'font-size="9"[^>]*>([^<]+)</text>', out)}
+        assert len(months) == 2, f"新暦1ヶ月には旧暦2ヶ月が跨るはず: {months}"
+
+    def test_行数に数えられている(self):
+        from almanac_calendar.calendar import annotation_lines
+        assert annotation_lines(WidgetConfig(show_lunar_date=True)) == 1
+        assert annotation_lines(WidgetConfig(show_lunar_date=True, show_rokuyo=True,
+                                             annotation_mode="stack")) == 2
+
+    def test_範囲外の月は落とす(self):
+        with pytest.raises(ValueError, match="対応範囲"):
+            render(dt.date(2101, 6, 1), theme=LIGHT,
+                   config=WidgetConfig(show_lunar_date=True))

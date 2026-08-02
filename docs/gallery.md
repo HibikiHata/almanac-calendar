@@ -69,6 +69,17 @@ Options are passed to the action as inputs (see the
 <img src="../tests/golden/rokuyo-light.svg" width="312" alt="rokuyo-light"> <img src="../tests/golden/rokuyo-dark.svg" width="312" alt="rokuyo-dark">
 
 
+## Lunisolar date
+
+`lunar-date-light` — `show_lunar_date=True`
+
+<img src="../tests/golden/lunar-date-light.svg" width="312" alt="lunar-date-light">
+
+`lunar-date-rokuyo-light` / `lunar-date-rokuyo-dark` — `show_lunar_date=True`, `show_rokuyo=True`, `annotation_mode='stack'`
+
+<img src="../tests/golden/lunar-date-rokuyo-light.svg" width="312" alt="lunar-date-rokuyo-light"> <img src="../tests/golden/lunar-date-rokuyo-dark.svg" width="312" alt="lunar-date-rokuyo-dark">
+
+
 ## Solar terms
 
 `solar-terms-light` — `show_solar_terms=True`

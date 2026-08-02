@@ -53,6 +53,12 @@ inputs:
     description: "Show the 24 solar terms"
     required: false
     default: "false"
+  lunar_date:
+    description: >-
+      Show the lunisolar (Tenpō-reki) date, as `6/20`; a leap month reads `閏6/20`.
+      Rokuyō is derived from this, so showing both makes the rokuyō checkable.
+    required: false
+    default: "false"
   moon:
     description: "Draw the moon phase in each cell"
     required: false
@@ -122,6 +128,7 @@ runs:
         IN_BORDER: ${{ inputs.border }}
         IN_ROKUYO: ${{ inputs.rokuyo }}
         IN_SOLAR_TERMS: ${{ inputs.solar_terms }}
+        IN_LUNAR_DATE: ${{ inputs.lunar_date }}
         IN_MOON: ${{ inputs.moon }}
         IN_MOON_AGE: ${{ inputs.moon_age }}
         IN_MOON_AMBER: ${{ inputs.moon_amber }}
@@ -148,6 +155,7 @@ runs:
         [ "$IN_BORDER" = "true" ]        && args+=(--border)
         [ "$IN_ROKUYO" = "true" ]        && args+=(--rokuyo)
         [ "$IN_SOLAR_TERMS" = "true" ]   && args+=(--solar-terms)
+        [ "$IN_LUNAR_DATE" = "true" ]    && args+=(--lunar-date)
         [ "$IN_MOON" = "true" ]          && args+=(--moon)
         [ "$IN_MOON_AGE" = "true" ]      && args+=(--moon-age)
         [ "$IN_MOON_AMBER" = "true" ]    && args+=(--moon-amber)
