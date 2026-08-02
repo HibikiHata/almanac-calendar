@@ -69,7 +69,6 @@ jobs:
           out: build/washi
           palette: washi
           rokuyo: "true"
-          colorize: "true"
           border: "true"
           font: noto-sans-jp
 

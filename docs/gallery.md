@@ -2,9 +2,7 @@
 
 # Gallery
 
-Every option, with the exact image it produces. The images are the committed golden
-files — the same bytes the test suite compares against — so nothing here can drift
-from what the code actually renders.
+Every option, with the image it produces.
 
 All are rendered for **August 2026** with the 1st highlighted as "today", so the
 variants are directly comparable.
@@ -15,214 +13,158 @@ Options are passed to the action as inputs (see the
 
 ## Defaults — nothing enabled
 
-**`default-light`** — light · *(defaults)*
+`default-light` / `default-dark` — *(defaults)*
 
-<img src="../tests/golden/default-light.svg" width="312" alt="default-light">
+<img src="../tests/golden/default-light.svg" width="312" alt="default-light"> <img src="../tests/golden/default-dark.svg" width="312" alt="default-dark">
 
-**`default-dark`** — dark · *(defaults)*
+`en-light` / `en-dark` — `locale='en'`
 
-<img src="../tests/golden/default-dark.svg" width="312" alt="default-dark">
-
-**`en-light`** — light · `locale='en'`
-
-<img src="../tests/golden/en-light.svg" width="312" alt="en-light">
-
-**`en-dark`** — dark · `locale='en'`
-
-<img src="../tests/golden/en-dark.svg" width="312" alt="en-dark">
+<img src="../tests/golden/en-light.svg" width="312" alt="en-light"> <img src="../tests/golden/en-dark.svg" width="312" alt="en-dark">
 
 
 ## Palette: mono
 
-**`mono-light`** — light · `palette='mono'`
+`mono-light` / `mono-dark` — `palette='mono'`
 
-<img src="../tests/golden/mono-light.svg" width="312" alt="mono-light">
-
-**`mono-dark`** — dark · `palette='mono'`
-
-<img src="../tests/golden/mono-dark.svg" width="312" alt="mono-dark">
+<img src="../tests/golden/mono-light.svg" width="312" alt="mono-light"> <img src="../tests/golden/mono-dark.svg" width="312" alt="mono-dark">
 
 
 ## Palette: washi
 
-**`washi-light`** — light · `palette='washi'`
+`washi-light` / `washi-dark` — `palette='washi'`
 
-<img src="../tests/golden/washi-light.svg" width="312" alt="washi-light">
-
-**`washi-dark`** — dark · `palette='washi'`
-
-<img src="../tests/golden/washi-dark.svg" width="312" alt="washi-dark">
+<img src="../tests/golden/washi-light.svg" width="312" alt="washi-light"> <img src="../tests/golden/washi-dark.svg" width="312" alt="washi-dark">
 
 
 ## Locale, week start, timezone label, shape
 
-**`en-monday-light`** — light · `locale='en'`, `week_start='monday'`
+`en-monday-light` — `locale='en'`, `week_start='monday'`
 
 <img src="../tests/golden/en-monday-light.svg" width="312" alt="en-monday-light">
 
-**`timezone-label-light`** — light · `show_timezone=True`
+`timezone-label-light` — `show_timezone=True`
 
 <img src="../tests/golden/timezone-label-light.svg" width="312" alt="timezone-label-light">
 
-**`square-light`** — light · `radius=0`
+`square-light` — `radius=0`
 
 <img src="../tests/golden/square-light.svg" width="312" alt="square-light">
 
-**`border-light`** — light · `border=True`
+`border-light` / `border-dark` — `border=True`
 
-<img src="../tests/golden/border-light.svg" width="312" alt="border-light">
-
-**`border-dark`** — dark · `border=True`
-
-<img src="../tests/golden/border-dark.svg" width="312" alt="border-dark">
+<img src="../tests/golden/border-light.svg" width="312" alt="border-light"> <img src="../tests/golden/border-dark.svg" width="312" alt="border-dark">
 
 
 ## Embedded font subset
 
-**`embedded-font-light`** — light · `font='noto-sans-jp'`
+`embedded-font-light` — `font='noto-sans-jp'`
 
 <img src="../tests/golden/embedded-font-light.svg" width="312" alt="embedded-font-light">
 
 
 ## Rokuyō
 
-**`rokuyo-light`** — light · `show_rokuyo=True`
+`rokuyo-light` / `rokuyo-dark` — `show_rokuyo=True`
 
-<img src="../tests/golden/rokuyo-light.svg" width="312" alt="rokuyo-light">
-
-**`rokuyo-dark`** — dark · `show_rokuyo=True`
-
-<img src="../tests/golden/rokuyo-dark.svg" width="312" alt="rokuyo-dark">
+<img src="../tests/golden/rokuyo-light.svg" width="312" alt="rokuyo-light"> <img src="../tests/golden/rokuyo-dark.svg" width="312" alt="rokuyo-dark">
 
 
 ## Solar terms
 
-**`solar-terms-light`** — light · `show_solar_terms=True`
+`solar-terms-light` — `show_solar_terms=True`
 
 <img src="../tests/golden/solar-terms-light.svg" width="312" alt="solar-terms-light">
 
-**`rokuyo-terms-light`** — light · `show_rokuyo=True`, `show_solar_terms=True`
+`rokuyo-terms-light` / `rokuyo-terms-dark` — `show_rokuyo=True`, `show_solar_terms=True`
 
-<img src="../tests/golden/rokuyo-terms-light.svg" width="312" alt="rokuyo-terms-light">
+<img src="../tests/golden/rokuyo-terms-light.svg" width="312" alt="rokuyo-terms-light"> <img src="../tests/golden/rokuyo-terms-dark.svg" width="312" alt="rokuyo-terms-dark">
 
-**`rokuyo-terms-dark`** — dark · `show_rokuyo=True`, `show_solar_terms=True`
-
-<img src="../tests/golden/rokuyo-terms-dark.svg" width="312" alt="rokuyo-terms-dark">
-
-**`rokuyo-font-light`** — light · `show_rokuyo=True`, `show_solar_terms=True`, `font='noto-sans-jp'`
+`rokuyo-font-light` — `show_rokuyo=True`, `show_solar_terms=True`, `font='noto-sans-jp'`
 
 <img src="../tests/golden/rokuyo-font-light.svg" width="312" alt="rokuyo-font-light">
 
 
 ## Moon phase and moon age
 
-**`moon-light`** — light · `show_moon=True`
+`moon-light` / `moon-dark` — `show_moon=True`
 
-<img src="../tests/golden/moon-light.svg" width="312" alt="moon-light">
+<img src="../tests/golden/moon-light.svg" width="312" alt="moon-light"> <img src="../tests/golden/moon-dark.svg" width="312" alt="moon-dark">
 
-**`moon-dark`** — dark · `show_moon=True`
-
-<img src="../tests/golden/moon-dark.svg" width="312" alt="moon-dark">
-
-**`moon-age-light`** — light · `show_moon=True`, `show_moon_age=True`
+`moon-age-light` — `show_moon=True`, `show_moon_age=True`
 
 <img src="../tests/golden/moon-age-light.svg" width="312" alt="moon-age-light">
 
 
 ## Everything at once
 
-**`full-light`** — light · `show_moon=True`, `show_rokuyo=True`, `show_solar_terms=True`, `border=True`
+`full-light` / `full-dark` — `show_moon=True`, `show_rokuyo=True`, `show_solar_terms=True`, `border=True`
 
-<img src="../tests/golden/full-light.svg" width="312" alt="full-light">
-
-**`full-dark`** — dark · `show_moon=True`, `show_rokuyo=True`, `show_solar_terms=True`, `border=True`
-
-<img src="../tests/golden/full-dark.svg" width="312" alt="full-dark">
+<img src="../tests/golden/full-light.svg" width="312" alt="full-light"> <img src="../tests/golden/full-dark.svg" width="312" alt="full-dark">
 
 
 ## Public holidays
 
-**`holiday-jp-light`** — light · `holiday_country='JP'`, `show_holiday_names=True`
+`holiday-jp-light` / `holiday-jp-dark` — `holiday_country='JP'`, `show_holiday_names=True`
 
-<img src="../tests/golden/holiday-jp-light.svg" width="312" alt="holiday-jp-light">
+<img src="../tests/golden/holiday-jp-light.svg" width="312" alt="holiday-jp-light"> <img src="../tests/golden/holiday-jp-dark.svg" width="312" alt="holiday-jp-dark">
 
-**`holiday-jp-dark`** — dark · `holiday_country='JP'`, `show_holiday_names=True`
-
-<img src="../tests/golden/holiday-jp-dark.svg" width="312" alt="holiday-jp-dark">
-
-**`holiday-us-light`** — light · `holiday_country='US'`, `locale='en'`, `week_start='monday'`
+`holiday-us-light` — `holiday_country='US'`, `locale='en'`, `week_start='monday'`
 
 <img src="../tests/golden/holiday-us-light.svg" width="312" alt="holiday-us-light">
 
-**`everything-light`** — light · `holiday_country='JP'`, `show_holiday_names=True`, `show_moon=True`, `show_rokuyo=True`, `show_solar_terms=True`, `border=True`, `font='noto-sans-jp'`
+`everything-light` — `holiday_country='JP'`, `show_holiday_names=True`, `show_moon=True`, `show_rokuyo=True`, `show_solar_terms=True`, `border=True`, `font='noto-sans-jp'`
 
 <img src="../tests/golden/everything-light.svg" width="312" alt="everything-light">
 
 
 ## Stacked annotations
 
-**`stack-light`** — light · `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`
+`stack-light` — `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`
 
 <img src="../tests/golden/stack-light.svg" width="312" alt="stack-light">
 
-**`stack-all-light`** — light · `holiday_country='JP'`, `show_holiday_names=True`, `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `border=True`
+`stack-all-light` / `stack-all-dark` — `holiday_country='JP'`, `show_holiday_names=True`, `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `border=True`
 
-<img src="../tests/golden/stack-all-light.svg" width="312" alt="stack-all-light">
-
-**`stack-all-dark`** — dark · `holiday_country='JP'`, `show_holiday_names=True`, `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `border=True`
-
-<img src="../tests/golden/stack-all-dark.svg" width="312" alt="stack-all-dark">
+<img src="../tests/golden/stack-all-light.svg" width="312" alt="stack-all-light"> <img src="../tests/golden/stack-all-dark.svg" width="312" alt="stack-all-dark">
 
 
 ## Annotation colour
 
-**`colorized-light`** — light · `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `colorize_annotations=True`
+`colorized-light` — `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `colorize_annotations=True`
 
 <img src="../tests/golden/colorized-light.svg" width="312" alt="colorized-light">
 
-**`colorized-washi-light`** — light · `palette='washi'`, `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `colorize_annotations=True`
+`colorized-washi-light` — `palette='washi'`, `show_rokuyo=True`, `show_solar_terms=True`, `annotation_mode='stack'`, `colorize_annotations=True`
 
 <img src="../tests/golden/colorized-washi-light.svg" width="312" alt="colorized-washi-light">
 
 
 ## Moon phase — position and colour
 
-**`moon-below-light`** — light · `show_moon=True`, `moon_position='below'`, `show_rokuyo=True`
+`moon-below-light` — `show_moon=True`, `moon_position='below'`, `show_rokuyo=True`
 
 <img src="../tests/golden/moon-below-light.svg" width="312" alt="moon-below-light">
 
-**`moon-amber-light`** — light · `show_moon=True`, `moon_amber=True`
+`moon-amber-light` / `moon-amber-dark` — `show_moon=True`, `moon_amber=True`
 
-<img src="../tests/golden/moon-amber-light.svg" width="312" alt="moon-amber-light">
+<img src="../tests/golden/moon-amber-light.svg" width="312" alt="moon-amber-light"> <img src="../tests/golden/moon-amber-dark.svg" width="312" alt="moon-amber-dark">
 
-**`moon-amber-dark`** — dark · `show_moon=True`, `moon_amber=True`
+`moon-amber-below-light` / `moon-amber-below-dark` — `show_moon=True`, `moon_amber=True`, `moon_position='below'`, `show_rokuyo=True`
 
-<img src="../tests/golden/moon-amber-dark.svg" width="312" alt="moon-amber-dark">
-
-**`moon-amber-below-light`** — light · `show_moon=True`, `moon_amber=True`, `moon_position='below'`, `show_rokuyo=True`
-
-<img src="../tests/golden/moon-amber-below-light.svg" width="312" alt="moon-amber-below-light">
-
-**`moon-amber-below-dark`** — dark · `show_moon=True`, `moon_amber=True`, `moon_position='below'`, `show_rokuyo=True`
-
-<img src="../tests/golden/moon-amber-below-dark.svg" width="312" alt="moon-amber-below-dark">
+<img src="../tests/golden/moon-amber-below-light.svg" width="312" alt="moon-amber-below-light"> <img src="../tests/golden/moon-amber-below-dark.svg" width="312" alt="moon-amber-below-dark">
 
 
 ## Almanac selection days
 
-**`lucky-light`** — light · `show_lucky_days=True`, `show_rokuyo=True`, `annotation_mode='stack'`, `colorize_annotations=True`
+`lucky-light` — `show_lucky_days=True`, `show_rokuyo=True`, `annotation_mode='stack'`, `colorize_annotations=True`
 
 <img src="../tests/golden/lucky-light.svg" width="312" alt="lucky-light">
 
-**`almanac-light`** — light · `show_lucky_days=True`, `show_unlucky_days=True`, `show_rokuyo=True`, `annotation_mode='stack'`, `colorize_annotations=True`, `border=True`
+`almanac-light` / `almanac-dark` — `show_lucky_days=True`, `show_unlucky_days=True`, `show_rokuyo=True`, `annotation_mode='stack'`, `colorize_annotations=True`, `border=True`
 
-<img src="../tests/golden/almanac-light.svg" width="312" alt="almanac-light">
+<img src="../tests/golden/almanac-light.svg" width="312" alt="almanac-light"> <img src="../tests/golden/almanac-dark.svg" width="312" alt="almanac-dark">
 
-**`almanac-dark`** — dark · `show_lucky_days=True`, `show_unlucky_days=True`, `show_rokuyo=True`, `annotation_mode='stack'`, `colorize_annotations=True`, `border=True`
-
-<img src="../tests/golden/almanac-dark.svg" width="312" alt="almanac-dark">
-
-**`almanac-table2-light`** — light · `show_lucky_days=True`, `ichiryu_table='II'`, `annotation_mode='stack'`
+`almanac-table2-light` — `show_lucky_days=True`, `ichiryu_table='II'`, `annotation_mode='stack'`
 
 <img src="../tests/golden/almanac-table2-light.svg" width="312" alt="almanac-table2-light">
 

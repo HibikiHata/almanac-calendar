@@ -1,16 +1,21 @@
 # Copy this to .github/workflows/calendar.yml in your own repository.
+#
+# The action writes SVG files into the runner's working directory, which is
+# thrown away when the job ends. To make them show up in your README they have
+# to be committed back to your repository — that is what the last step does.
+
 name: calendar
 
 on:
   schedule:
-    - cron: "10 15 * * *"   # 00:10 JST
+    - cron: "10 15 * * *"   # 00:10 JST. cron is always UTC.
   workflow_dispatch:
 
 jobs:
   calendar:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write       # needed to push the regenerated SVGs back
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +25,21 @@ jobs:
           rokuyo: "true"
           holidays: "JP"
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update calendar"
-          file_pattern: dist/*
+      - name: Commit the result
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist
+          # Nothing changes on a day the calendar is identical, and `commit`
+          # exits non-zero with nothing staged — which would fail the job.
+          git diff --staged --quiet && { echo "no change"; exit 0; }
+          git commit -q -m "chore: update calendar"
+          git push -q
+
+# Then reference the files from your README:
+#
+# <picture>
+#   <source media="(prefers-color-scheme: dark)" srcset="dist/calendar-dark.svg">
+#   <img alt="Calendar" src="dist/calendar-light.svg">
+# </picture>

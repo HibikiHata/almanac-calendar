@@ -48,10 +48,8 @@ Six variants are pre-rendered. Swap the filename to pick one:
 | `calendar-washi-{light,dark}.svg` | `washi` palette with coloured rokuyō |
 | `calendar-moon-{light,dark}.svg` | Moon phase below the rokuyō |
 
-They are regenerated four times a day, at the top of the day in JST, UTC, US Eastern
-and US Pacific, so whichever one you pick is current for its own timezone. **The
-timezone is baked into the image** — a shared file cannot follow the reader — so pick
-the variant whose zone matches your audience.
+They are regenerated four times a day. The timezone is baked into each image, so pick
+the variant that matches your audience.
 
 ### Generate your own (GitHub Action)
 
@@ -82,20 +80,10 @@ moon's age. Here below the annotation line, in the palette's moon colour.
 <img src="tests/golden/moon-amber-below-light.svg" width="312" alt="Moon phase, light theme">
 <img src="tests/golden/moon-amber-below-dark.svg" width="312" alt="Moon phase, dark theme">
 
-**Everything at once** — holidays, solar terms and rokuyō stacked, with the `washi`
-palette on the right.
-
-<img src="tests/golden/stack-all-light.svg" width="312" alt="All annotations, light theme">
-<img src="tests/golden/colorized-washi-light.svg" width="312" alt="Washi palette with coloured annotations">
-
 Palettes are `default` (matches GitHub's canvas), `mono` (no weekday colours) and
 `washi` (paper and ink); each ships light and dark.
 
 **[See every option with its image →](docs/gallery.md)**
-
-That page is generated from the same definitions the tests use, so it cannot drift
-from what the code renders. (`tests/preview.html` shows the same thing with a
-theme-switching preview, but needs a local clone.)
 
 ## Options
 
