@@ -30,13 +30,28 @@ GitHub theme.
 <picture>
   <source media="(prefers-color-scheme: dark)"
           srcset="https://raw.githubusercontent.com/HibikiHata/almanac-calendar/output/calendar-dark.svg">
-  <img alt="Calendar"
-       src="https://raw.githubusercontent.com/HibikiHata/almanac-calendar/output/calendar-light.svg">
+  <img alt="Calendar" src="https://raw.githubusercontent.com/HibikiHata/almanac-calendar/output/calendar-light.svg">
 </picture>
 ```
 
 This works because a calendar does not depend on who is looking at it — one shared
-image serves everyone. It is regenerated daily.
+image serves everyone.
+
+Six variants are pre-rendered. Swap the filename to pick one:
+
+| Filename | What you get |
+|---|---|
+| `calendar-{light,dark}.svg` | Plain calendar, Japanese, JST |
+| `calendar-en-{light,dark}.svg` | Plain calendar, English, UTC |
+| `calendar-rokuyo-{light,dark}.svg` | With rokuyō |
+| `calendar-full-{light,dark}.svg` | Holidays, solar terms, rokuyō and moon |
+| `calendar-washi-{light,dark}.svg` | `washi` palette with coloured rokuyō |
+| `calendar-moon-{light,dark}.svg` | Moon phase below the rokuyō |
+
+They are regenerated four times a day, at the top of the day in JST, UTC, US Eastern
+and US Pacific, so whichever one you pick is current for its own timezone. **The
+timezone is baked into the image** — a shared file cannot follow the reader — so pick
+the variant whose zone matches your audience.
 
 ### Generate your own (GitHub Action)
 
@@ -76,9 +91,11 @@ palette on the right.
 Palettes are `default` (matches GitHub's canvas), `mono` (no weekday colours) and
 `washi` (paper and ink); each ships light and dark.
 
-Open [`tests/preview.html`](tests/preview.html) locally to see every combination. The
-images are the committed golden files — the exact bytes the tests compare against, so
-what you see is what you get.
+**[See every option with its image →](docs/gallery.md)**
+
+That page is generated from the same definitions the tests use, so it cannot drift
+from what the code renders. (`tests/preview.html` shows the same thing with a
+theme-switching preview, but needs a local clone.)
 
 ## Options
 

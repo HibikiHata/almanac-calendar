@@ -2,9 +2,20 @@ name: generate
 
 on:
   schedule:
-    # 15:10 UTC = 00:10 JST — just after the Japanese day rolls over, with a few
-    # minutes of slack because scheduled runs are not punctual.
-    - cron: "10 15 * * *"
+    # **cron は常に UTC**（変更不可）。狙っているのは各地域の日替わり直後で、
+    # 画像の中身のタイムゾーンとは別の話。各画像は自分の `timezone` で「今日」を
+    # 計算するので、いつ走っても計算自体は正しい。頻度を上げる目的は
+    # **次の生成までのズレ**を縮めること。
+    #
+    # 毎回すべてのバリアントを作り直す。JST画像を UTC 深夜に作り直しても、その
+    # 時点の JST は同じ日なので害はない。地域ごとに実行を分けるより単純で壊れにくい。
+    #
+    # スケジュール実行は高負荷時に遅延・欠落しうると公式に明記されているので、
+    # ちょうど 00:00 ではなく 10 分の余裕を置く。
+    - cron: "10 15 * * *"   # 00:10 JST
+    - cron: "10 0 * * *"    # 00:10 UTC
+    - cron: "10 5 * * *"    # 00:10 EST
+    - cron: "10 8 * * *"    # 00:10 PST
   workflow_dispatch:
   push:
     branches: [main]
@@ -22,18 +33,69 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate the showcase variants
+      # Variants for the "just paste it" path. Those users cannot pass options,
+      # so the useful combinations are prepared here.
+      #
+      # The default one carries no suffix and is the **plain** calendar, matching
+      # the README's top image — what someone pastes should be what they were shown.
+      - name: Plain, Japanese, JST
+        uses: ./
+        with: { out: build/default }
+
+      - name: Plain, English, UTC
+        uses: ./
+        with: { out: build/en, locale: en, timezone: UTC }
+
+      - name: Rokuyō
+        uses: ./
+        with: { out: build/rokuyo, rokuyo: "true", font: noto-sans-jp }
+
+      - name: Everything
         uses: ./
         with:
-          out: dist
+          out: build/full
           rokuyo: "true"
           solar_terms: "true"
           moon: "true"
-          holidays: "JP"
+          holidays: JP
           holiday_names: "true"
-          annotation_mode: "stack"
+          annotation_mode: stack
           border: "true"
-          font: "noto-sans-jp"
+          font: noto-sans-jp
+
+      - name: Washi palette
+        uses: ./
+        with:
+          out: build/washi
+          palette: washi
+          rokuyo: "true"
+          colorize: "true"
+          border: "true"
+          font: noto-sans-jp
+
+      - name: Moon phase
+        uses: ./
+        with:
+          out: build/moon
+          moon: "true"
+          moon_amber: "true"
+          moon_position: below
+          rokuyo: "true"
+          font: noto-sans-jp
+
+      - name: Collect into flat filenames
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          for v in default en rokuyo full washi moon; do
+            # The default keeps the bare name so URLs already pasted keep working
+            suffix=""
+            [ "$v" != "default" ] && suffix="-$v"
+            for mode in light dark; do
+              cp "build/$v/calendar-$mode.svg" "dist/calendar$suffix-$mode.svg"
+            done
+          done
+          ls -1 dist
 
       - name: Publish to the output branch
         # Artefacts go to a branch of their own so the daily commits never touch
@@ -56,7 +118,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -q -m "chore: regenerate $(date -u +%Y-%m-%d)"
+          git commit -q -m "chore: regenerate $(date -u +%Y-%m-%dT%H:%MZ)"
           git push -q --force \
             "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
-          echo "published to the output branch"
+          echo "published $(ls -1 | wc -l | tr -d ' ') files to the output branch"

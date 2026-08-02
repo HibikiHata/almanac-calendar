@@ -83,3 +83,26 @@ def test_preview_htmlがpictureの切り替えを実演している():
     assert "<picture>" in html
     assert 'media="(prefers-color-scheme: dark)"' in html
     assert 'media="(prefers-color-scheme: light)"' in html
+
+
+def test_gallery_mdがゴールデンと同期している():
+    """公開向けの docs/gallery.md が、現在の定義から作れるものと一致すること。
+
+    利用者の大半はリポジトリをcloneしないので、gallery.md がGitHub上で読める
+    唯一の一覧になる。**手で書くと必ず陳腐化する**ので preview.html と同じ
+    定義から生成し、ずれていればここで落とす。
+    """
+    from tests.preview import GALLERY_MD, build_gallery
+
+    assert GALLERY_MD.exists(), f"docs/gallery.md が未生成。{UPDATE_HINT}"
+    assert GALLERY_MD.read_text(encoding="utf-8") == build_gallery(), \
+        f"docs/gallery.md が定義とずれている。{UPDATE_HINT}"
+
+
+def test_gallery_mdが参照する画像が全て存在する():
+    import re
+    html = GALLERY_MD_TEXT = (Path(__file__).parents[1] / "docs" / "gallery.md").read_text()
+    refs = set(re.findall(r'src="\.\./tests/golden/([^"]+)"', html))
+    assert refs, "gallery.md が画像を1枚も参照していない"
+    for ref in sorted(refs):
+        assert (GOLDEN_DIR / ref).exists(), f"参照先が無い: {ref}"

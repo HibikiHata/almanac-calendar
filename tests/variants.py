@@ -128,6 +128,31 @@ PREVIEW_SECTIONS: list[tuple[str, list[str]]] = [
      ["lucky-light", "almanac-light", "almanac-dark", "almanac-table2-light"]),
 ]
 
+#: gallery.md（公開向け・英語）の見出し。preview.html は日本語のまま使う。
+#: 見出し文字列をキーにしているので、片方を変えるともう片方で気づける
+SECTION_TITLES_EN: dict[str, str] = {
+    "既定（何も設定しない状態）": "Defaults — nothing enabled",
+    "mono": "Palette: mono",
+    "washi（生成り色。白いREADMEでは輪郭が出る）": "Palette: washi",
+    "オプション": "Locale, week start, timezone label, shape",
+    "フォント埋め込み（S-pub。CJKフォントの無い環境でも同じ字面になる）":
+        "Embedded font subset",
+    "六曜（S4）。既定では出さない": "Rokuyō",
+    "月の満ち欠け（S5）。形は各マスの右上、月齢は注記行":
+        "Moon phase and moon age",
+    "二十四節気（S5b）。年24日だけに付く。六曜と併用すると節気を優先する":
+        "Solar terms",
+    "祝日（S6）。国コードで切り替える。名前は節気より優先": "Public holidays",
+    "併記モード（stack）。優先順位で1つ選ばず、該当するものを上から詰める":
+        "Stacked annotations",
+    "注記の配色。六曜に確立した慣習は無いので、色を付ける場合だけ"
+    "大安と仏滅・赤口の二極に絞る": "Annotation colour",
+    "月の位置と色": "Moon phase — position and colour",
+    "全部入り": "Everything at once",
+    "暦注（選日）。吉日と凶日は別々に切り替える。既定はどちらもオフ。"
+    "最後の1枚は一粒万倍日の選日法をⅡに替えたもの": "Almanac selection days",
+}
+
 DARK_VARIANTS = {name for name, (_, mode) in VARIANTS.items() if mode == "dark"}
 
 
