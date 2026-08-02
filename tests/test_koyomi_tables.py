@@ -37,10 +37,16 @@ class TestLoad:
         terms = [t for t, _ in tables.solar_terms()]
         assert terms == sorted(terms)
 
-    def test_秒は保持しない(self):
-        # 分解能は分。検証には十分で、無駄な差分を生まない
-        for row in tables.new_moons()[:50]:
-            assert row.second == 0 and row.microsecond == 0
+    def test_秒を保持する(self):
+        """**分に丸めてはいけない。** 丸めると日界をまたぐ現象で日付が動く。
+
+        2030年の雨水は真の値が 2月18日 23:59:40 JST。分に丸めると 00:00 に
+        なり2月19日へ移る。国立天文台は同じ分単位でも `2030/02/18 24:00` と
+        書いて**日付のほうを保持する**。日付の割り当ては暦の契約そのもの
+        （節月の境界・月相の表示日が動く）なので、丸めた値を根拠にしない。
+        """
+        seconds = {row.second for row in tables.new_moons()}
+        assert len(seconds) > 1, "秒がすべて0——分に丸められている"
 
 
 class TestRange:
@@ -156,12 +162,12 @@ class TestDayBoundaryEvents:
 
     #: (日付, 種別, NAOJの公表時刻) — 当実装はこの日付、NAOJは隣の日
     KNOWN = (
-        (dt.date(1964, 9, 8), "白露（節。中気ではないので月の配置には効かない）",
-         "09/07 23:59"),
-        (dt.date(2064, 12, 1), "弦または望（月の形が1日ずれる。暦日には効かない）",
-         "12/02 00:00"),
-        (dt.date(2069, 7, 11), "弦または望（同上）", "07/12 00:00"),
+        (dt.date(1913, 12, 13), "望（月の形が1日ずれる。暦日には効かない）",
+         "12/14 00:00"),
+        (dt.date(2064, 12, 1), "弦または望（同上）", "12/02 00:00"),
         (dt.date(2074, 8, 22), "朔（旧暦7月1日が1日ずれる）", "08/23 00:00"),
+        (dt.date(2095, 12, 21), "冬至（中気。ただし旧暦の月配置は変わらない）",
+         "12/22 00:02"),
         (dt.date(2097, 1, 13), "朔（旧暦12月1日が1日ずれる）", "01/14 00:01"),
     )
 
@@ -173,7 +179,7 @@ class TestDayBoundaryEvents:
             match = [w.astimezone(JST) for w in instants
                      if w.astimezone(JST).date() == day
                      and (w.astimezone(JST).hour, w.astimezone(JST).minute)
-                     in ((23, 58), (23, 59), (0, 0), (0, 1))]
+                     in ((23, 57), (23, 58), (23, 59), (0, 0), (0, 1), (0, 2))]
             assert match, f"{day} {label} が日界から離れた。定義が変わった疑い"
 
     def test_境界事象の総数が増えていない(self):
@@ -186,7 +192,9 @@ class TestDayBoundaryEvents:
             local = when.astimezone(JST)
             if not low <= local.date() <= high:
                 continue
-            minutes = local.hour * 60 + local.minute
+            # 秒まで見る。分だけで測ると 23:59:40 と 23:59:05 が同じになり、
+            # 丸めが日付を動かしていた頃の数え方に戻ってしまう
+            minutes = local.hour * 60 + local.minute + local.second / 60
             if min(minutes, 1440 - minutes) <= 3:
                 near += 1
-        assert near == 64, f"日界±3分の事象が {near} 件（既知は64件）"
+        assert near == 56, f"日界±3分の事象が {near} 件（既知は56件）"

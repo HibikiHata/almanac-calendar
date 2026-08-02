@@ -81,15 +81,25 @@ def _fetch(cgi: str, year: int, cache: Path | None = None) -> str:
 def _rows(text: str) -> list[tuple[dt.datetime, str]]:
     """1行を (JSTの瞬時, 行の残り) にする。
 
-    NAOJは**日界の0時を前日の 24:00 と表記する**（稀。1900〜2100で5回）。
-    `datetime(..., hour=24)` は ValueError なので、時分は必ず timedelta で足す。
-    ここを素直に int で渡すと、その年がまるごと照合から漏れる。
+    NAOJは**日界の直前を前日の `24:00` と表記する**（1900〜2100で5回）。
+    これは「翌日の0時」ではなく「その日の終わり」で、**NAOJは丸めても日付の
+    ほうを保持している**——2030年の雨水は真の値が 2月18日 23:59:40 なので、
+    分に丸めた 24:00 を2月18日の行に置いている。
+
+    ここを `timedelta(hours=24)` で足して翌日にすると、**NAOJが保持している
+    日付を捨てることになる**。日付の一致を見る検証でそれをやると、正しい実装を
+    不一致と誤判定する（実際にそうなった）。24時台は「その日の23:59:59」として
+    扱い、日付は印字されたとおりに保つ。
     """
     out = []
     for m in _ROW.finditer(text):
         y, mo, d, h, mi, rest = m.groups()
-        midnight = dt.datetime(int(y), int(mo), int(d), tzinfo=JST)
-        out.append((midnight + dt.timedelta(hours=int(h), minutes=int(mi)), rest))
+        hour, minute = int(h), int(mi)
+        if hour >= 24:
+            when = dt.datetime(int(y), int(mo), int(d), 23, 59, 59, tzinfo=JST)
+        else:
+            when = dt.datetime(int(y), int(mo), int(d), hour, minute, tzinfo=JST)
+        out.append((when, rest))
     return out
 
 

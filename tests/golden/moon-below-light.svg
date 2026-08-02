@@ -16,7 +16,7 @@
   <text x="276" y="102" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">1</text>
   <text x="276" y="115" fill="#ffffff" font-size="9" text-anchor="middle">赤口</text>
   <circle cx="276" cy="122" r="5" fill="#d1d9e0"/>
-  <path d="M276,117A5,5 0 0,0 276,127A4.32,5 0 0,0 276,117Z" fill="#ffffff"/>
+  <path d="M276,117A5,5 0 0,0 276,127A4.319,5 0 0,0 276,117Z" fill="#ffffff"/>
   <text x="36" y="163" fill="#cf222e" font-size="15" text-anchor="middle">2</text>
   <text x="36" y="176" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
   <circle cx="36" cy="183" r="5" fill="#d1d9e0"/>
@@ -24,11 +24,11 @@
   <text x="76" y="163" fill="#1f2328" font-size="15" text-anchor="middle">3</text>
   <text x="76" y="176" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
   <circle cx="76" cy="183" r="5" fill="#d1d9e0"/>
-  <path d="M76,178A5,5 0 0,0 76,188A2.919,5 0 0,0 76,178Z" fill="#1f2328"/>
+  <path d="M76,178A5,5 0 0,0 76,188A2.92,5 0 0,0 76,178Z" fill="#1f2328"/>
   <text x="116" y="163" fill="#1f2328" font-size="15" text-anchor="middle">4</text>
   <text x="116" y="176" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
   <circle cx="116" cy="183" r="5" fill="#d1d9e0"/>
-  <path d="M116,178A5,5 0 0,0 116,188A2.01,5 0 0,0 116,178Z" fill="#1f2328"/>
+  <path d="M116,178A5,5 0 0,0 116,188A2.011,5 0 0,0 116,178Z" fill="#1f2328"/>
   <text x="156" y="163" fill="#1f2328" font-size="15" text-anchor="middle">5</text>
   <text x="156" y="176" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
   <circle cx="156" cy="183" r="5" fill="#d1d9e0"/>
@@ -40,7 +40,7 @@
   <text x="236" y="163" fill="#1f2328" font-size="15" text-anchor="middle">7</text>
   <text x="236" y="176" fill="#59636e" font-size="9" text-anchor="middle">赤口</text>
   <circle cx="236" cy="183" r="5" fill="#d1d9e0"/>
-  <path d="M236,178A5,5 0 0,0 236,188A1.204,5 0 0,1 236,178Z" fill="#1f2328"/>
+  <path d="M236,178A5,5 0 0,0 236,188A1.203,5 0 0,1 236,178Z" fill="#1f2328"/>
   <text x="276" y="163" fill="#0969da" font-size="15" text-anchor="middle">8</text>
   <text x="276" y="176" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
   <circle cx="276" cy="183" r="5" fill="#d1d9e0"/>
@@ -68,7 +68,7 @@
   <text x="236" y="224" fill="#1f2328" font-size="15" text-anchor="middle">14</text>
   <text x="236" y="237" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
   <circle cx="236" cy="244" r="5" fill="#d1d9e0"/>
-  <path d="M236,239A5,5 0 0,1 236,249A4.783,5 0 0,0 236,239Z" fill="#1f2328"/>
+  <path d="M236,239A5,5 0 0,1 236,249A4.782,5 0 0,0 236,239Z" fill="#1f2328"/>
   <text x="276" y="224" fill="#0969da" font-size="15" text-anchor="middle">15</text>
   <text x="276" y="237" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
   <circle cx="276" cy="244" r="5" fill="#d1d9e0"/>
@@ -136,5 +136,5 @@
   <text x="76" y="407" fill="#1f2328" font-size="15" text-anchor="middle">31</text>
   <text x="76" y="420" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
   <circle cx="76" cy="427" r="5" fill="#d1d9e0"/>
-  <path d="M76,422A5,5 0 0,0 76,432A3.988,5 0 0,0 76,422Z" fill="#1f2328"/>
+  <path d="M76,422A5,5 0 0,0 76,432A3.989,5 0 0,0 76,422Z" fill="#1f2328"/>
 </svg>
