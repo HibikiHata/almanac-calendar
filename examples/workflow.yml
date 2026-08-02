@@ -1,0 +1,26 @@
+# Copy this to .github/workflows/calendar.yml in your own repository.
+name: calendar
+
+on:
+  schedule:
+    - cron: "10 15 * * *"   # 00:10 JST
+  workflow_dispatch:
+
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: HibikiHata/almanac-calendar@v1
+        with:
+          out: dist
+          rokuyo: "true"
+          holidays: "JP"
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update calendar"
+          file_pattern: dist/*

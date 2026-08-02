@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 554" width="312" height="554" role="img">
+  <title>2026年8月</title>
+  <desc>2026年8月 の月間カレンダー</desc>
+  <style>text{font-family:ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif}</style>
+  <rect x="0.5" y="0.5" width="311" height="553" fill="#0d1117" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="156" y="41" fill="#e6edf3" font-size="20" text-anchor="middle" font-weight="600">2026年8月</text>
+  <rect x="16" y="54" width="280" height="26" fill="#161b22" rx="4"/>
+  <text x="36" y="72" fill="#ff7b72" font-size="12" text-anchor="middle" font-weight="600">日</text>
+  <text x="76" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">月</text>
+  <text x="116" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">火</text>
+  <text x="156" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">水</text>
+  <text x="196" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">木</text>
+  <text x="236" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">金</text>
+  <text x="276" y="72" fill="#79c0ff" font-size="12" text-anchor="middle" font-weight="600">土</text>
+  <rect x="260" y="83" width="32" height="65" fill="#1f6feb" rx="7" data-today="true"/>
+  <text x="276" y="102" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">1</text>
+  <text x="276" y="115" fill="#ffffff" font-size="9" text-anchor="middle">赤口</text>
+  <text x="36" y="175" fill="#ff7b72" font-size="15" text-anchor="middle">2</text>
+  <text x="36" y="188" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+  <text x="76" y="175" fill="#e6edf3" font-size="15" text-anchor="middle">3</text>
+  <text x="76" y="188" fill="#9198a1" font-size="9" text-anchor="middle">友引</text>
+  <text x="116" y="175" fill="#e6edf3" font-size="15" text-anchor="middle">4</text>
+  <text x="116" y="188" fill="#9198a1" font-size="9" text-anchor="middle">先負</text>
+  <text x="156" y="175" fill="#e6edf3" font-size="15" text-anchor="middle">5</text>
+  <text x="156" y="188" fill="#9198a1" font-size="9" text-anchor="middle">仏滅</text>
+  <text x="196" y="175" fill="#e6edf3" font-size="15" text-anchor="middle">6</text>
+  <text x="196" y="188" fill="#9198a1" font-size="9" text-anchor="middle">大安</text>
+  <text x="236" y="175" fill="#e6edf3" font-size="15" text-anchor="middle">7</text>
+  <text x="236" y="188" fill="#9198a1" font-size="9" text-anchor="middle">立秋</text>
+  <text x="236" y="201" fill="#9198a1" font-size="9" text-anchor="middle">赤口</text>
+  <text x="276" y="175" fill="#79c0ff" font-size="15" text-anchor="middle">8</text>
+  <text x="276" y="188" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+  <text x="36" y="248" fill="#ff7b72" font-size="15" text-anchor="middle">9</text>
+  <text x="36" y="261" fill="#9198a1" font-size="9" text-anchor="middle">友引</text>
+  <text x="76" y="248" fill="#e6edf3" font-size="15" text-anchor="middle">10</text>
+  <text x="76" y="261" fill="#9198a1" font-size="9" text-anchor="middle">先負</text>
+  <text x="116" y="248" fill="#ff7b72" font-size="15" text-anchor="middle">11</text>
+  <text x="116" y="261" fill="#9198a1" font-size="9" text-anchor="middle">山の日</text>
+  <text x="116" y="274" fill="#9198a1" font-size="9" text-anchor="middle">仏滅</text>
+  <text x="156" y="248" fill="#e6edf3" font-size="15" text-anchor="middle">12</text>
+  <text x="156" y="261" fill="#9198a1" font-size="9" text-anchor="middle">大安</text>
+  <text x="196" y="248" fill="#e6edf3" font-size="15" text-anchor="middle">13</text>
+  <text x="196" y="261" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+  <text x="236" y="248" fill="#e6edf3" font-size="15" text-anchor="middle">14</text>
+  <text x="236" y="261" fill="#9198a1" font-size="9" text-anchor="middle">友引</text>
+  <text x="276" y="248" fill="#79c0ff" font-size="15" text-anchor="middle">15</text>
+  <text x="276" y="261" fill="#9198a1" font-size="9" text-anchor="middle">先負</text>
+  <text x="36" y="321" fill="#ff7b72" font-size="15" text-anchor="middle">16</text>
+  <text x="36" y="334" fill="#9198a1" font-size="9" text-anchor="middle">仏滅</text>
+  <text x="76" y="321" fill="#e6edf3" font-size="15" text-anchor="middle">17</text>
+  <text x="76" y="334" fill="#9198a1" font-size="9" text-anchor="middle">大安</text>
+  <text x="116" y="321" fill="#e6edf3" font-size="15" text-anchor="middle">18</text>
+  <text x="116" y="334" fill="#9198a1" font-size="9" text-anchor="middle">赤口</text>
+  <text x="156" y="321" fill="#e6edf3" font-size="15" text-anchor="middle">19</text>
+  <text x="156" y="334" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+  <text x="196" y="321" fill="#e6edf3" font-size="15" text-anchor="middle">20</text>
+  <text x="196" y="334" fill="#9198a1" font-size="9" text-anchor="middle">友引</text>
+  <text x="236" y="321" fill="#e6edf3" font-size="15" text-anchor="middle">21</text>
+  <text x="236" y="334" fill="#9198a1" font-size="9" text-anchor="middle">先負</text>
+  <text x="276" y="321" fill="#79c0ff" font-size="15" text-anchor="middle">22</text>
+  <text x="276" y="334" fill="#9198a1" font-size="9" text-anchor="middle">仏滅</text>
+  <text x="36" y="394" fill="#ff7b72" font-size="15" text-anchor="middle">23</text>
+  <text x="36" y="407" fill="#9198a1" font-size="9" text-anchor="middle">処暑</text>
+  <text x="36" y="420" fill="#9198a1" font-size="9" text-anchor="middle">大安</text>
+  <text x="76" y="394" fill="#e6edf3" font-size="15" text-anchor="middle">24</text>
+  <text x="76" y="407" fill="#9198a1" font-size="9" text-anchor="middle">赤口</text>
+  <text x="116" y="394" fill="#e6edf3" font-size="15" text-anchor="middle">25</text>
+  <text x="116" y="407" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+  <text x="156" y="394" fill="#e6edf3" font-size="15" text-anchor="middle">26</text>
+  <text x="156" y="407" fill="#9198a1" font-size="9" text-anchor="middle">友引</text>
+  <text x="196" y="394" fill="#e6edf3" font-size="15" text-anchor="middle">27</text>
+  <text x="196" y="407" fill="#9198a1" font-size="9" text-anchor="middle">先負</text>
+  <text x="236" y="394" fill="#e6edf3" font-size="15" text-anchor="middle">28</text>
+  <text x="236" y="407" fill="#9198a1" font-size="9" text-anchor="middle">仏滅</text>
+  <text x="276" y="394" fill="#79c0ff" font-size="15" text-anchor="middle">29</text>
+  <text x="276" y="407" fill="#9198a1" font-size="9" text-anchor="middle">大安</text>
+  <text x="36" y="467" fill="#ff7b72" font-size="15" text-anchor="middle">30</text>
+  <text x="36" y="480" fill="#9198a1" font-size="9" text-anchor="middle">赤口</text>
+  <text x="76" y="467" fill="#e6edf3" font-size="15" text-anchor="middle">31</text>
+  <text x="76" y="480" fill="#9198a1" font-size="9" text-anchor="middle">先勝</text>
+</svg>

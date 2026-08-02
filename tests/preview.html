@@ -1,0 +1,111 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>calendar widget preview</title>
+<style>
+  body { font-family: -apple-system, "Hiragino Sans", sans-serif; margin: 32px;
+         background: #eef0f3; color: #1f2328; }
+  h1 { font-size: 18px; margin: 0 0 6px; }
+  h2 { font-size: 14px; margin: 32px 0 10px; color: #59636e; }
+  p.note { color:#59636e; font-size:13px; line-height:1.8; margin:0 0 12px; max-width:780px; }
+  .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  figure { margin: 0; }
+  figcaption { font-size: 12px; color: #59636e; margin-top: 8px; text-align: center; }
+  /* GitHub のキャンバス色をそのまま再現する。padding も枠も付けない＝
+     カードの周りに見える色は SVG 自身の背景色との差だけになる */
+  .canvas { display: inline-block; line-height: 0; }
+  .canvas-light { background: #ffffff; }
+  .canvas-dark { background: #0d1117; }
+  img { display: block; }
+</style>
+<h1>カレンダーウィジェット プレビュー</h1>
+<p class="note">GitHub と同じく <code>&lt;img&gt;</code> 経由で読み込んでいます。<strong>枠も余白も付けていません</strong>ので、カードの周りに色が見える場合は SVG 自身の背景色と GitHub のキャンバス色の差です。<br>表示しているのは <code>tests/golden/</code> のコミット済みファイルそのもので、テストが比較しているものと同一です。<br>更新: <code>PYTHONPATH=src python3 tests/preview.py --update</code></p>
+<h2>default</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/default-light.svg" alt="default-light"></div><figcaption>default-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/default-dark.svg" alt="default-dark"></div><figcaption>default-dark</figcaption></figure>
+</div>
+<h2>mono</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/mono-light.svg" alt="mono-light"></div><figcaption>mono-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/mono-dark.svg" alt="mono-dark"></div><figcaption>mono-dark</figcaption></figure>
+</div>
+<h2>washi（生成り色。白いREADMEでは輪郭が出る）</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/washi-light.svg" alt="washi-light"></div><figcaption>washi-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/washi-dark.svg" alt="washi-dark"></div><figcaption>washi-dark</figcaption></figure>
+</div>
+<h2>オプション</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/en-monday-light.svg" alt="en-monday-light"></div><figcaption>en-monday-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/timezone-label-light.svg" alt="timezone-label-light"></div><figcaption>timezone-label-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/square-light.svg" alt="square-light"></div><figcaption>square-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/border-light.svg" alt="border-light"></div><figcaption>border-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/border-dark.svg" alt="border-dark"></div><figcaption>border-dark</figcaption></figure>
+</div>
+<h2>フォント埋め込み（S-pub。CJKフォントの無い環境でも同じ字面になる）</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/embedded-font-light.svg" alt="embedded-font-light"></div><figcaption>embedded-font-light</figcaption></figure>
+</div>
+<h2>六曜（S4）。既定では出さない</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/rokuyo-light.svg" alt="rokuyo-light"></div><figcaption>rokuyo-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/rokuyo-dark.svg" alt="rokuyo-dark"></div><figcaption>rokuyo-dark</figcaption></figure>
+</div>
+<h2>二十四節気（S5b）。年24日だけに付く。六曜と併用すると節気を優先する</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/solar-terms-light.svg" alt="solar-terms-light"></div><figcaption>solar-terms-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/rokuyo-terms-light.svg" alt="rokuyo-terms-light"></div><figcaption>rokuyo-terms-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/rokuyo-terms-dark.svg" alt="rokuyo-terms-dark"></div><figcaption>rokuyo-terms-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/rokuyo-font-light.svg" alt="rokuyo-font-light"></div><figcaption>rokuyo-font-light</figcaption></figure>
+</div>
+<h2>月の満ち欠け（S5）。形は各マスの右上、月齢は注記行</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/moon-light.svg" alt="moon-light"></div><figcaption>moon-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/moon-dark.svg" alt="moon-dark"></div><figcaption>moon-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/moon-age-light.svg" alt="moon-age-light"></div><figcaption>moon-age-light</figcaption></figure>
+</div>
+<h2>全部入り</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/full-light.svg" alt="full-light"></div><figcaption>full-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/full-dark.svg" alt="full-dark"></div><figcaption>full-dark</figcaption></figure>
+</div>
+<h2>祝日（S6）。国コードで切り替える。名前は節気より優先</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/holiday-jp-light.svg" alt="holiday-jp-light"></div><figcaption>holiday-jp-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/holiday-jp-dark.svg" alt="holiday-jp-dark"></div><figcaption>holiday-jp-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/holiday-us-light.svg" alt="holiday-us-light"></div><figcaption>holiday-us-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/everything-light.svg" alt="everything-light"></div><figcaption>everything-light</figcaption></figure>
+</div>
+<h2>併記モード（stack）。優先順位で1つ選ばず、該当するものを上から詰める</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/stack-light.svg" alt="stack-light"></div><figcaption>stack-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/stack-all-light.svg" alt="stack-all-light"></div><figcaption>stack-all-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/stack-all-dark.svg" alt="stack-all-dark"></div><figcaption>stack-all-dark</figcaption></figure>
+</div>
+<h2>注記の配色。六曜に確立した慣習は無いので、色を付ける場合だけ大安と仏滅・赤口の二極に絞る</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/colorized-light.svg" alt="colorized-light"></div><figcaption>colorized-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/colorized-washi-light.svg" alt="colorized-washi-light"></div><figcaption>colorized-washi-light</figcaption></figure>
+</div>
+<h2>月の位置と色</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/moon-below-light.svg" alt="moon-below-light"></div><figcaption>moon-below-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/moon-amber-light.svg" alt="moon-amber-light"></div><figcaption>moon-amber-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/moon-amber-dark.svg" alt="moon-amber-dark"></div><figcaption>moon-amber-dark</figcaption></figure>
+</div>
+<h2>暦注（選日）。吉日と凶日は別々に切り替える。既定はどちらもオフ。最後の1枚は一粒万倍日の選日法をⅡに替えたもの</h2>
+<div class="row">
+  <figure><div class="canvas canvas-light"><img src="golden/lucky-light.svg" alt="lucky-light"></div><figcaption>lucky-light</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/almanac-light.svg" alt="almanac-light"></div><figcaption>almanac-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/almanac-dark.svg" alt="almanac-dark"></div><figcaption>almanac-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/almanac-table2-light.svg" alt="almanac-table2-light"></div><figcaption>almanac-table2-light</figcaption></figure>
+</div>
+<h2>READMEに貼る &lt;picture&gt; の実演</h2>
+<p class="note">CLI が <code>calendar.html</code> として書き出すスニペットと同じ構造です。<strong>OSの外観設定をライト／ダークで切り替えると、下の1枚が入れ替わります。</strong>上の一覧は2枚を並べているだけなので、この切り替えはここでしか確認できません。</p>
+<div class="row">
+  <figure><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="golden/default-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="golden/default-light.svg">
+    <img alt="2026年8月 の月間カレンダー" src="golden/default-light.svg">
+  </picture><figcaption>OSのテーマに追従</figcaption></figure>
+</div>

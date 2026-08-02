@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 320" width="312" height="320" role="img">
+  <title>2026年8月</title>
+  <desc>2026年8月 の月間カレンダー</desc>
+  <style>text{font-family:ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif}</style>
+  <rect x="0" y="0" width="312" height="320" fill="#ffffff" rx="8"/>
+  <text x="156" y="41" fill="#1f2328" font-size="20" text-anchor="middle" font-weight="600">2026年8月</text>
+  <rect x="16" y="54" width="280" height="26" fill="#f6f8fa" rx="4"/>
+  <text x="36" y="72" fill="#cf222e" font-size="12" text-anchor="middle" font-weight="600">日</text>
+  <text x="76" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">月</text>
+  <text x="116" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">火</text>
+  <text x="156" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">水</text>
+  <text x="196" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">木</text>
+  <text x="236" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">金</text>
+  <text x="276" y="72" fill="#0969da" font-size="12" text-anchor="middle" font-weight="600">土</text>
+  <rect x="260" y="83" width="32" height="26" fill="#0969da" rx="7" data-today="true"/>
+  <text x="276" y="102" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">1</text>
+  <circle cx="288" cy="88" r="5" fill="#d1d9e0"/>
+  <path d="M288,83A5,5 0 0,0 288,93A4.32,5 0 0,0 288,83Z" fill="#ffffff"/>
+  <text x="36" y="136" fill="#cf222e" font-size="15" text-anchor="middle">2</text>
+  <circle cx="48" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M48,117A5,5 0 0,0 48,127A3.701,5 0 0,0 48,117Z" fill="#1f2328"/>
+  <text x="76" y="136" fill="#1f2328" font-size="15" text-anchor="middle">3</text>
+  <circle cx="88" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M88,117A5,5 0 0,0 88,127A2.919,5 0 0,0 88,117Z" fill="#1f2328"/>
+  <text x="116" y="136" fill="#1f2328" font-size="15" text-anchor="middle">4</text>
+  <circle cx="128" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M128,117A5,5 0 0,0 128,127A2.01,5 0 0,0 128,117Z" fill="#1f2328"/>
+  <text x="156" y="136" fill="#1f2328" font-size="15" text-anchor="middle">5</text>
+  <circle cx="168" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M168,117A5,5 0 0,0 168,127A1.013,5 0 0,0 168,117Z" fill="#1f2328"/>
+  <text x="196" y="136" fill="#1f2328" font-size="15" text-anchor="middle">6</text>
+  <circle cx="208" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M208,117A5,5 0 0,0 208,127A0.032,5 0 0,1 208,117Z" fill="#1f2328"/>
+  <text x="236" y="136" fill="#1f2328" font-size="15" text-anchor="middle">7</text>
+  <circle cx="248" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M248,117A5,5 0 0,0 248,127A1.204,5 0 0,1 248,117Z" fill="#1f2328"/>
+  <text x="276" y="136" fill="#0969da" font-size="15" text-anchor="middle">8</text>
+  <circle cx="288" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M288,117A5,5 0 0,0 288,127A2.308,5 0 0,1 288,117Z" fill="#1f2328"/>
+  <text x="36" y="170" fill="#cf222e" font-size="15" text-anchor="middle">9</text>
+  <circle cx="48" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M48,151A5,5 0 0,0 48,161A3.284,5 0 0,1 48,151Z" fill="#1f2328"/>
+  <text x="76" y="170" fill="#1f2328" font-size="15" text-anchor="middle">10</text>
+  <circle cx="88" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M88,151A5,5 0 0,0 88,161A4.076,5 0 0,1 88,151Z" fill="#1f2328"/>
+  <text x="116" y="170" fill="#1f2328" font-size="15" text-anchor="middle">11</text>
+  <circle cx="128" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M128,151A5,5 0 0,0 128,161A4.642,5 0 0,1 128,151Z" fill="#1f2328"/>
+  <text x="156" y="170" fill="#1f2328" font-size="15" text-anchor="middle">12</text>
+  <circle cx="168" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M168,151A5,5 0 0,0 168,161A4.948,5 0 0,1 168,151Z" fill="#1f2328"/>
+  <text x="196" y="170" fill="#1f2328" font-size="15" text-anchor="middle">13</text>
+  <circle cx="208" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M208,151A5,5 0 0,1 208,161A4.983,5 0 0,0 208,151Z" fill="#1f2328"/>
+  <text x="236" y="170" fill="#1f2328" font-size="15" text-anchor="middle">14</text>
+  <circle cx="248" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M248,151A5,5 0 0,1 248,161A4.783,5 0 0,0 248,151Z" fill="#1f2328"/>
+  <text x="276" y="170" fill="#0969da" font-size="15" text-anchor="middle">15</text>
+  <circle cx="288" cy="156" r="5" fill="#d1d9e0"/>
+  <path d="M288,151A5,5 0 0,1 288,161A4.367,5 0 0,0 288,151Z" fill="#1f2328"/>
+  <text x="36" y="204" fill="#cf222e" font-size="15" text-anchor="middle">16</text>
+  <circle cx="48" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M48,185A5,5 0 0,1 48,195A3.754,5 0 0,0 48,185Z" fill="#1f2328"/>
+  <text x="76" y="204" fill="#1f2328" font-size="15" text-anchor="middle">17</text>
+  <circle cx="88" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M88,185A5,5 0 0,1 88,195A2.971,5 0 0,0 88,185Z" fill="#1f2328"/>
+  <text x="116" y="204" fill="#1f2328" font-size="15" text-anchor="middle">18</text>
+  <circle cx="128" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M128,185A5,5 0 0,1 128,195A2.055,5 0 0,0 128,185Z" fill="#1f2328"/>
+  <text x="156" y="204" fill="#1f2328" font-size="15" text-anchor="middle">19</text>
+  <circle cx="168" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M168,185A5,5 0 0,1 168,195A1.046,5 0 0,0 168,185Z" fill="#1f2328"/>
+  <text x="196" y="204" fill="#1f2328" font-size="15" text-anchor="middle">20</text>
+  <circle cx="208" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M208,185A5,5 0 0,1 208,195A0.009,5 0 0,1 208,185Z" fill="#1f2328"/>
+  <text x="236" y="204" fill="#1f2328" font-size="15" text-anchor="middle">21</text>
+  <circle cx="248" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M248,185A5,5 0 0,1 248,195A0.977,5 0 0,1 248,185Z" fill="#1f2328"/>
+  <text x="276" y="204" fill="#0969da" font-size="15" text-anchor="middle">22</text>
+  <circle cx="288" cy="190" r="5" fill="#d1d9e0"/>
+  <path d="M288,185A5,5 0 0,1 288,195A1.908,5 0 0,1 288,185Z" fill="#1f2328"/>
+  <text x="36" y="238" fill="#cf222e" font-size="15" text-anchor="middle">23</text>
+  <circle cx="48" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M48,219A5,5 0 0,1 48,229A2.766,5 0 0,1 48,219Z" fill="#1f2328"/>
+  <text x="76" y="238" fill="#1f2328" font-size="15" text-anchor="middle">24</text>
+  <circle cx="88" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M88,219A5,5 0 0,1 88,229A3.52,5 0 0,1 88,219Z" fill="#1f2328"/>
+  <text x="116" y="238" fill="#1f2328" font-size="15" text-anchor="middle">25</text>
+  <circle cx="128" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M128,219A5,5 0 0,1 128,229A4.141,5 0 0,1 128,219Z" fill="#1f2328"/>
+  <text x="156" y="238" fill="#1f2328" font-size="15" text-anchor="middle">26</text>
+  <circle cx="168" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M168,219A5,5 0 0,1 168,229A4.605,5 0 0,1 168,219Z" fill="#1f2328"/>
+  <text x="196" y="238" fill="#1f2328" font-size="15" text-anchor="middle">27</text>
+  <circle cx="208" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M208,219A5,5 0 0,1 208,229A4.895,5 0 0,1 208,219Z" fill="#1f2328"/>
+  <text x="236" y="238" fill="#1f2328" font-size="15" text-anchor="middle">28</text>
+  <circle cx="248" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M248,219A5,5 0 0,1 248,229A5,5 0 0,1 248,219Z" fill="#1f2328"/>
+  <text x="276" y="238" fill="#0969da" font-size="15" text-anchor="middle">29</text>
+  <circle cx="288" cy="224" r="5" fill="#d1d9e0"/>
+  <path d="M288,219A5,5 0 0,0 288,229A4.892,5 0 0,0 288,219Z" fill="#1f2328"/>
+  <text x="36" y="272" fill="#cf222e" font-size="15" text-anchor="middle">30</text>
+  <circle cx="48" cy="258" r="5" fill="#d1d9e0"/>
+  <path d="M48,253A5,5 0 0,0 48,263A4.55,5 0 0,0 48,253Z" fill="#1f2328"/>
+  <text x="76" y="272" fill="#1f2328" font-size="15" text-anchor="middle">31</text>
+  <circle cx="88" cy="258" r="5" fill="#d1d9e0"/>
+  <path d="M88,253A5,5 0 0,0 88,263A3.988,5 0 0,0 88,253Z" fill="#1f2328"/>
+</svg>

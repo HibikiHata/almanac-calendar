@@ -1,0 +1,41 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run tests
+        run: PYTHONPATH=src python3 -m pytest tests -q
+
+  action:
+    # The action is the published interface. Testing the library without
+    # exercising action.yml would let the two drift apart silently.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          out: dist
+          rokuyo: "true"
+          solar_terms: "true"
+          moon: "true"
+          holidays: "JP"
+          holiday_names: "true"
+          annotation_mode: "stack"
+          border: "true"
+      - name: Check the artefacts exist and are non-trivial
+        run: |
+          set -euo pipefail
+          for f in dist/calendar-light.svg dist/calendar-dark.svg dist/calendar.html; do
+            test -s "$f" || { echo "missing or empty: $f"; exit 1; }
+          done
+          grep -q "<svg" dist/calendar-light.svg

@@ -1,0 +1,54 @@
+name: generate
+
+on:
+  schedule:
+    # 15:10 UTC = 00:10 JST — just after the Japanese day rolls over, with a few
+    # minutes of slack because scheduled runs are not punctual.
+    - cron: "10 15 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+# A run started while another is still going would race on the output branch.
+concurrency:
+  group: generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate the showcase variants
+        uses: ./
+        with:
+          out: dist
+          rokuyo: "true"
+          solar_terms: "true"
+          moon: "true"
+          holidays: "JP"
+          holiday_names: "true"
+          annotation_mode: "stack"
+          border: "true"
+          font: "noto-sans-jp"
+
+      - name: Publish to the output branch
+        # Artefacts go to a branch of their own so the daily commits never touch
+        # main's history. They are then readable at
+        #   raw.githubusercontent.com/<owner>/<repo>/output/<file>
+        # which serves with max-age=300 and is not proxied through Camo.
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan output
+          git rm -rq --cached . || true
+          find . -maxdepth 1 ! -name . ! -name .git ! -name dist -exec rm -rf {} +
+          mv dist/* .
+          rmdir dist
+          git add -A
+          git commit -m "chore: regenerate $(date -u +%Y-%m-%d)" || { echo "no change"; exit 0; }
+          git push --force origin output

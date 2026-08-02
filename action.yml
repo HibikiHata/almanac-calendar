@@ -1,0 +1,128 @@
+name: "almanac-calendar"
+description: "Generate a monthly calendar SVG with Japanese almanac annotations and public holidays"
+author: "Hibiki Hata"
+branding:
+  icon: calendar
+  color: purple
+
+inputs:
+  out:
+    description: "Directory to write calendar-light.svg, calendar-dark.svg and calendar.html into"
+    required: false
+    default: "dist"
+  month:
+    description: "Target month as YYYY-MM. Defaults to the current month in `timezone`."
+    required: false
+  timezone:
+    description: >-
+      Which zone decides what 'today' is. Runners are on UTC, so leaving this at
+      Asia/Tokyo is what keeps the highlight correct between 00:00 and 09:00 JST.
+    required: false
+    default: "Asia/Tokyo"
+  locale:
+    description: "ja | en"
+    required: false
+    default: "ja"
+  week_start:
+    description: "sunday | monday"
+    required: false
+    default: "sunday"
+  palette:
+    description: "default | mono | washi"
+    required: false
+    default: "default"
+  border:
+    description: "Draw a 1px card border ('true' to enable)"
+    required: false
+    default: "false"
+  radius:
+    description: "Card corner radius in px, 0 for square"
+    required: false
+    default: "8"
+  font:
+    description: >-
+      Embed a font subset by name (currently only 'noto-sans-jp'). Leave empty to
+      rely on the viewer's fonts — on systems without a CJK font that shows tofu.
+    required: false
+    default: ""
+  rokuyo:
+    description: "Show rokuyō ('true' to enable)"
+    required: false
+    default: "false"
+  solar_terms:
+    description: "Show the 24 solar terms"
+    required: false
+    default: "false"
+  moon:
+    description: "Draw the moon phase in each cell"
+    required: false
+    default: "false"
+  moon_age:
+    description: "Show the numeric moon age"
+    required: false
+    default: "false"
+  moon_amber:
+    description: "Fill the lit face with the palette's moon colour"
+    required: false
+    default: "false"
+  holidays:
+    description: "ISO 3166-1 alpha-2 country code (JP, US, KR, ...). Empty disables holidays."
+    required: false
+    default: ""
+  holiday_names:
+    description: "Show holiday names (requires `holidays`)"
+    required: false
+    default: "false"
+  lucky_days:
+    description: "Show auspicious days (一粒万倍日, 天赦日, ...)"
+    required: false
+    default: "false"
+  unlucky_days:
+    description: "Show inauspicious days (不成就日, 三隣亡, ...)"
+    required: false
+    default: "false"
+  annotation_mode:
+    description: "priority (top-ranked only) | stack (all applicable, one per line)"
+    required: false
+    default: "priority"
+  colorize:
+    description: "Colour 大安 and 仏滅/赤口"
+    required: false
+    default: "false"
+
+runs:
+  # composite, not docker: the render path is standard-library only, so there is
+  # nothing to build an image for. Docker would add tens of seconds of pull time
+  # per run and put us on the hook for publishing an image.
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Generate calendar
+      shell: bash
+      env:
+        PYTHONPATH: ${{ github.action_path }}/src
+      run: |
+        set -euo pipefail
+        args=(--out "${{ inputs.out }}"
+              --timezone "${{ inputs.timezone }}"
+              --locale "${{ inputs.locale }}"
+              --week-start "${{ inputs.week_start }}"
+              --palette "${{ inputs.palette }}"
+              --radius "${{ inputs.radius }}"
+              --annotation-mode "${{ inputs.annotation_mode }}")
+        [ -n "${{ inputs.month }}" ]    && args+=(--month "${{ inputs.month }}")
+        [ -n "${{ inputs.font }}" ]     && args+=(--font "${{ inputs.font }}")
+        [ -n "${{ inputs.holidays }}" ] && args+=(--holidays "${{ inputs.holidays }}")
+        [ "${{ inputs.border }}"        = "true" ] && args+=(--border)
+        [ "${{ inputs.rokuyo }}"        = "true" ] && args+=(--rokuyo)
+        [ "${{ inputs.solar_terms }}"   = "true" ] && args+=(--solar-terms)
+        [ "${{ inputs.moon }}"          = "true" ] && args+=(--moon)
+        [ "${{ inputs.moon_age }}"      = "true" ] && args+=(--moon-age)
+        [ "${{ inputs.moon_amber }}"    = "true" ] && args+=(--moon-amber)
+        [ "${{ inputs.holiday_names }}" = "true" ] && args+=(--holiday-names)
+        [ "${{ inputs.lucky_days }}"    = "true" ] && args+=(--lucky-days)
+        [ "${{ inputs.unlucky_days }}"  = "true" ] && args+=(--unlucky-days)
+        [ "${{ inputs.colorize }}"      = "true" ] && args+=(--colorize)
+        python3 -m almanac_calendar "${args[@]}"
