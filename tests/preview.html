@@ -19,10 +19,12 @@
 </style>
 <h1>カレンダーウィジェット プレビュー</h1>
 <p class="note">GitHub と同じく <code>&lt;img&gt;</code> 経由で読み込んでいます。<strong>枠も余白も付けていません</strong>ので、カードの周りに色が見える場合は SVG 自身の背景色と GitHub のキャンバス色の差です。<br>表示しているのは <code>tests/golden/</code> のコミット済みファイルそのもので、テストが比較しているものと同一です。<br>更新: <code>PYTHONPATH=src python3 tests/preview.py --update</code></p>
-<h2>default</h2>
+<h2>既定（何も設定しない状態）</h2>
 <div class="row">
   <figure><div class="canvas canvas-light"><img src="golden/default-light.svg" alt="default-light"></div><figcaption>default-light</figcaption></figure>
   <figure><div class="canvas canvas-dark"><img src="golden/default-dark.svg" alt="default-dark"></div><figcaption>default-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/en-light.svg" alt="en-light"></div><figcaption>en-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/en-dark.svg" alt="en-dark"></div><figcaption>en-dark</figcaption></figure>
 </div>
 <h2>mono</h2>
 <div class="row">
@@ -92,6 +94,8 @@
   <figure><div class="canvas canvas-light"><img src="golden/moon-below-light.svg" alt="moon-below-light"></div><figcaption>moon-below-light</figcaption></figure>
   <figure><div class="canvas canvas-light"><img src="golden/moon-amber-light.svg" alt="moon-amber-light"></div><figcaption>moon-amber-light</figcaption></figure>
   <figure><div class="canvas canvas-dark"><img src="golden/moon-amber-dark.svg" alt="moon-amber-dark"></div><figcaption>moon-amber-dark</figcaption></figure>
+  <figure><div class="canvas canvas-light"><img src="golden/moon-amber-below-light.svg" alt="moon-amber-below-light"></div><figcaption>moon-amber-below-light</figcaption></figure>
+  <figure><div class="canvas canvas-dark"><img src="golden/moon-amber-below-dark.svg" alt="moon-amber-below-dark"></div><figcaption>moon-amber-below-dark</figcaption></figure>
 </div>
 <h2>暦注（選日）。吉日と凶日は別々に切り替える。既定はどちらもオフ。最後の1枚は一粒万倍日の選日法をⅡに替えたもの</h2>
 <div class="row">

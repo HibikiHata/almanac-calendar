@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 482" width="312" height="482" role="img">
+  <title>2026年8月</title>
+  <desc>2026年8月 の月間カレンダー</desc>
+  <style>text{font-family:ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif}</style>
+  <rect x="0" y="0" width="312" height="482" fill="#ffffff" rx="8"/>
+  <text x="156" y="41" fill="#1f2328" font-size="20" text-anchor="middle" font-weight="600">2026年8月</text>
+  <rect x="16" y="54" width="280" height="26" fill="#f6f8fa" rx="4"/>
+  <text x="36" y="72" fill="#cf222e" font-size="12" text-anchor="middle" font-weight="600">日</text>
+  <text x="76" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">月</text>
+  <text x="116" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">火</text>
+  <text x="156" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">水</text>
+  <text x="196" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">木</text>
+  <text x="236" y="72" fill="#1f2328" font-size="12" text-anchor="middle" font-weight="600">金</text>
+  <text x="276" y="72" fill="#0969da" font-size="12" text-anchor="middle" font-weight="600">土</text>
+  <rect x="260" y="83" width="32" height="53" fill="#0969da" rx="7" data-today="true"/>
+  <text x="276" y="102" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">1</text>
+  <text x="276" y="115" fill="#ffffff" font-size="9" text-anchor="middle">赤口</text>
+  <circle cx="276" cy="122" r="5" fill="#d1d9e0"/>
+  <path d="M276,117A5,5 0 0,0 276,127A4.32,5 0 0,0 276,117Z" fill="#ffffff"/>
+  <text x="36" y="163" fill="#cf222e" font-size="15" text-anchor="middle">2</text>
+  <text x="36" y="176" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="36" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M36,178A5,5 0 0,0 36,188A3.701,5 0 0,0 36,178Z" fill="#d4a017"/>
+  <text x="76" y="163" fill="#1f2328" font-size="15" text-anchor="middle">3</text>
+  <text x="76" y="176" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
+  <circle cx="76" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M76,178A5,5 0 0,0 76,188A2.919,5 0 0,0 76,178Z" fill="#d4a017"/>
+  <text x="116" y="163" fill="#1f2328" font-size="15" text-anchor="middle">4</text>
+  <text x="116" y="176" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
+  <circle cx="116" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M116,178A5,5 0 0,0 116,188A2.01,5 0 0,0 116,178Z" fill="#d4a017"/>
+  <text x="156" y="163" fill="#1f2328" font-size="15" text-anchor="middle">5</text>
+  <text x="156" y="176" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
+  <circle cx="156" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M156,178A5,5 0 0,0 156,188A1.013,5 0 0,0 156,178Z" fill="#d4a017"/>
+  <text x="196" y="163" fill="#1f2328" font-size="15" text-anchor="middle">6</text>
+  <text x="196" y="176" fill="#59636e" font-size="9" text-anchor="middle">大安</text>
+  <circle cx="196" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M196,178A5,5 0 0,0 196,188A0.032,5 0 0,1 196,178Z" fill="#d4a017"/>
+  <text x="236" y="163" fill="#1f2328" font-size="15" text-anchor="middle">7</text>
+  <text x="236" y="176" fill="#59636e" font-size="9" text-anchor="middle">赤口</text>
+  <circle cx="236" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M236,178A5,5 0 0,0 236,188A1.204,5 0 0,1 236,178Z" fill="#d4a017"/>
+  <text x="276" y="163" fill="#0969da" font-size="15" text-anchor="middle">8</text>
+  <text x="276" y="176" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="276" cy="183" r="5" fill="#d1d9e0"/>
+  <path d="M276,178A5,5 0 0,0 276,188A2.308,5 0 0,1 276,178Z" fill="#d4a017"/>
+  <text x="36" y="224" fill="#cf222e" font-size="15" text-anchor="middle">9</text>
+  <text x="36" y="237" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
+  <circle cx="36" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M36,239A5,5 0 0,0 36,249A3.284,5 0 0,1 36,239Z" fill="#d4a017"/>
+  <text x="76" y="224" fill="#1f2328" font-size="15" text-anchor="middle">10</text>
+  <text x="76" y="237" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
+  <circle cx="76" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M76,239A5,5 0 0,0 76,249A4.076,5 0 0,1 76,239Z" fill="#d4a017"/>
+  <text x="116" y="224" fill="#1f2328" font-size="15" text-anchor="middle">11</text>
+  <text x="116" y="237" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
+  <circle cx="116" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M116,239A5,5 0 0,0 116,249A4.642,5 0 0,1 116,239Z" fill="#d4a017"/>
+  <text x="156" y="224" fill="#1f2328" font-size="15" text-anchor="middle">12</text>
+  <text x="156" y="237" fill="#59636e" font-size="9" text-anchor="middle">大安</text>
+  <circle cx="156" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M156,239A5,5 0 0,0 156,249A4.948,5 0 0,1 156,239Z" fill="#d4a017"/>
+  <text x="196" y="224" fill="#1f2328" font-size="15" text-anchor="middle">13</text>
+  <text x="196" y="237" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="196" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M196,239A5,5 0 0,1 196,249A4.983,5 0 0,0 196,239Z" fill="#d4a017"/>
+  <text x="236" y="224" fill="#1f2328" font-size="15" text-anchor="middle">14</text>
+  <text x="236" y="237" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
+  <circle cx="236" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M236,239A5,5 0 0,1 236,249A4.783,5 0 0,0 236,239Z" fill="#d4a017"/>
+  <text x="276" y="224" fill="#0969da" font-size="15" text-anchor="middle">15</text>
+  <text x="276" y="237" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
+  <circle cx="276" cy="244" r="5" fill="#d1d9e0"/>
+  <path d="M276,239A5,5 0 0,1 276,249A4.367,5 0 0,0 276,239Z" fill="#d4a017"/>
+  <text x="36" y="285" fill="#cf222e" font-size="15" text-anchor="middle">16</text>
+  <text x="36" y="298" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
+  <circle cx="36" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M36,300A5,5 0 0,1 36,310A3.754,5 0 0,0 36,300Z" fill="#d4a017"/>
+  <text x="76" y="285" fill="#1f2328" font-size="15" text-anchor="middle">17</text>
+  <text x="76" y="298" fill="#59636e" font-size="9" text-anchor="middle">大安</text>
+  <circle cx="76" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M76,300A5,5 0 0,1 76,310A2.971,5 0 0,0 76,300Z" fill="#d4a017"/>
+  <text x="116" y="285" fill="#1f2328" font-size="15" text-anchor="middle">18</text>
+  <text x="116" y="298" fill="#59636e" font-size="9" text-anchor="middle">赤口</text>
+  <circle cx="116" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M116,300A5,5 0 0,1 116,310A2.055,5 0 0,0 116,300Z" fill="#d4a017"/>
+  <text x="156" y="285" fill="#1f2328" font-size="15" text-anchor="middle">19</text>
+  <text x="156" y="298" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="156" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M156,300A5,5 0 0,1 156,310A1.046,5 0 0,0 156,300Z" fill="#d4a017"/>
+  <text x="196" y="285" fill="#1f2328" font-size="15" text-anchor="middle">20</text>
+  <text x="196" y="298" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
+  <circle cx="196" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M196,300A5,5 0 0,1 196,310A0.009,5 0 0,1 196,300Z" fill="#d4a017"/>
+  <text x="236" y="285" fill="#1f2328" font-size="15" text-anchor="middle">21</text>
+  <text x="236" y="298" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
+  <circle cx="236" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M236,300A5,5 0 0,1 236,310A0.977,5 0 0,1 236,300Z" fill="#d4a017"/>
+  <text x="276" y="285" fill="#0969da" font-size="15" text-anchor="middle">22</text>
+  <text x="276" y="298" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
+  <circle cx="276" cy="305" r="5" fill="#d1d9e0"/>
+  <path d="M276,300A5,5 0 0,1 276,310A1.908,5 0 0,1 276,300Z" fill="#d4a017"/>
+  <text x="36" y="346" fill="#cf222e" font-size="15" text-anchor="middle">23</text>
+  <text x="36" y="359" fill="#59636e" font-size="9" text-anchor="middle">大安</text>
+  <circle cx="36" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M36,361A5,5 0 0,1 36,371A2.766,5 0 0,1 36,361Z" fill="#d4a017"/>
+  <text x="76" y="346" fill="#1f2328" font-size="15" text-anchor="middle">24</text>
+  <text x="76" y="359" fill="#59636e" font-size="9" text-anchor="middle">赤口</text>
+  <circle cx="76" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M76,361A5,5 0 0,1 76,371A3.52,5 0 0,1 76,361Z" fill="#d4a017"/>
+  <text x="116" y="346" fill="#1f2328" font-size="15" text-anchor="middle">25</text>
+  <text x="116" y="359" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="116" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M116,361A5,5 0 0,1 116,371A4.141,5 0 0,1 116,361Z" fill="#d4a017"/>
+  <text x="156" y="346" fill="#1f2328" font-size="15" text-anchor="middle">26</text>
+  <text x="156" y="359" fill="#59636e" font-size="9" text-anchor="middle">友引</text>
+  <circle cx="156" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M156,361A5,5 0 0,1 156,371A4.605,5 0 0,1 156,361Z" fill="#d4a017"/>
+  <text x="196" y="346" fill="#1f2328" font-size="15" text-anchor="middle">27</text>
+  <text x="196" y="359" fill="#59636e" font-size="9" text-anchor="middle">先負</text>
+  <circle cx="196" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M196,361A5,5 0 0,1 196,371A4.895,5 0 0,1 196,361Z" fill="#d4a017"/>
+  <text x="236" y="346" fill="#1f2328" font-size="15" text-anchor="middle">28</text>
+  <text x="236" y="359" fill="#59636e" font-size="9" text-anchor="middle">仏滅</text>
+  <circle cx="236" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M236,361A5,5 0 0,1 236,371A5,5 0 0,1 236,361Z" fill="#d4a017"/>
+  <text x="276" y="346" fill="#0969da" font-size="15" text-anchor="middle">29</text>
+  <text x="276" y="359" fill="#59636e" font-size="9" text-anchor="middle">大安</text>
+  <circle cx="276" cy="366" r="5" fill="#d1d9e0"/>
+  <path d="M276,361A5,5 0 0,0 276,371A4.892,5 0 0,0 276,361Z" fill="#d4a017"/>
+  <text x="36" y="407" fill="#cf222e" font-size="15" text-anchor="middle">30</text>
+  <text x="36" y="420" fill="#59636e" font-size="9" text-anchor="middle">赤口</text>
+  <circle cx="36" cy="427" r="5" fill="#d1d9e0"/>
+  <path d="M36,422A5,5 0 0,0 36,432A4.55,5 0 0,0 36,422Z" fill="#d4a017"/>
+  <text x="76" y="407" fill="#1f2328" font-size="15" text-anchor="middle">31</text>
+  <text x="76" y="420" fill="#59636e" font-size="9" text-anchor="middle">先勝</text>
+  <circle cx="76" cy="427" r="5" fill="#d1d9e0"/>
+  <path d="M76,422A5,5 0 0,0 76,432A3.988,5 0 0,0 76,422Z" fill="#d4a017"/>
+</svg>

@@ -18,6 +18,9 @@ TODAY = date(2026, 8, 1)
 VARIANTS: dict[str, tuple[dict, str]] = {
     "default-light": ({}, "light"),
     "default-dark": ({}, "dark"),
+    # 英語ロケールの素の状態。READMEのトップに置く「何も設定しない姿」
+    "en-light": ({"locale": "en"}, "light"),
+    "en-dark": ({"locale": "en"}, "dark"),
     "mono-light": ({"palette": "mono"}, "light"),
     "mono-dark": ({"palette": "mono"}, "dark"),
     "washi-light": ({"palette": "washi"}, "light"),
@@ -73,6 +76,12 @@ VARIANTS: dict[str, tuple[dict, str]] = {
                           "show_rokuyo": True}, "light"),
     "moon-amber-light": ({"show_moon": True, "moon_amber": True}, "light"),
     "moon-amber-dark": ({"show_moon": True, "moon_amber": True}, "dark"),
+    "moon-amber-below-light": ({"show_moon": True, "moon_amber": True,
+                                "moon_position": "below",
+                                "show_rokuyo": True}, "light"),
+    "moon-amber-below-dark": ({"show_moon": True, "moon_amber": True,
+                               "moon_position": "below",
+                               "show_rokuyo": True}, "dark"),
     "lucky-light": ({"show_lucky_days": True, "show_rokuyo": True,
                      "annotation_mode": "stack",
                      "colorize_annotations": True}, "light"),
@@ -88,7 +97,8 @@ VARIANTS: dict[str, tuple[dict, str]] = {
 
 # プレビューでどう並べるか（見出し -> 並べる variant 名）
 PREVIEW_SECTIONS: list[tuple[str, list[str]]] = [
-    ("default", ["default-light", "default-dark"]),
+    ("既定（何も設定しない状態）", ["default-light", "default-dark",
+                                   "en-light", "en-dark"]),
     ("mono", ["mono-light", "mono-dark"]),
     ("washi（生成り色。白いREADMEでは輪郭が出る）", ["washi-light", "washi-dark"]),
     ("オプション", ["en-monday-light", "timezone-label-light", "square-light",
@@ -111,7 +121,8 @@ PREVIEW_SECTIONS: list[tuple[str, list[str]]] = [
     ("注記の配色。六曜に確立した慣習は無いので、色を付ける場合だけ"
      "大安と仏滅・赤口の二極に絞る",
      ["colorized-light", "colorized-washi-light"]),
-    ("月の位置と色", ["moon-below-light", "moon-amber-light", "moon-amber-dark"]),
+    ("月の位置と色", ["moon-below-light", "moon-amber-light", "moon-amber-dark",
+                      "moon-amber-below-light", "moon-amber-below-dark"]),
     ("暦注（選日）。吉日と凶日は別々に切り替える。既定はどちらもオフ。"
      "最後の1枚は一粒万倍日の選日法をⅡに替えたもの",
      ["lucky-light", "almanac-light", "almanac-dark", "almanac-table2-light"]),

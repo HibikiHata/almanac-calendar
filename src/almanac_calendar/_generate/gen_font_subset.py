@@ -1,6 +1,12 @@
 """OFLフォントを必要な文字だけに削り、埋め込み用のサブセットを作る（開発時のみ）。
 
-    PYTHONPATH=src python3 -m almanac_calendar._generate.gen_font_subset
+    PYTHONPATH=src python3 -m almanac_calendar._generate.gen_font_subset \
+        --source-dir <元フォントを置いたディレクトリ>
+
+元フォントはリポジトリに含めない（9MBあり、成果物は生成済みサブセットで足りる）。
+Noto Sans JP の可変フォントを https://fonts.google.com/noto/specimen/Noto+Sans+JP
+から取得し、そのディレクトリを --source-dir に渡すか、環境変数
+`ALMANAC_FONT_SOURCE_DIR` に設定する。
 
 配布物には入らない。fontTools を使うのはここだけで、実行時（利用者のランナー）は
 標準ライブラリのみで動く。
@@ -15,6 +21,8 @@ manifest は「要求した文字」ではなく **生成後のcmapから** 書�
 """
 from __future__ import annotations
 
+import argparse
+import os
 import sys
 from pathlib import Path
 
@@ -23,8 +31,9 @@ from fontTools.ttLib import TTFont
 
 from almanac_calendar.charset import required_charset
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-SOURCE_FONTS = REPO_ROOT / ".claude_config" / "skills" / "gen-image" / "assets" / "fonts"
+#: 元フォントの置き場。**リポジトリ内に固定の場所を持たない**。
+#: 元フォント自体を同梱しないため、どこから取るかは実行する人が決める。
+ENV_SOURCE_DIR = "ALMANAC_FONT_SOURCE_DIR"
 OUT_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 
 # 出力名 -> (元ファイル, 可変フォントの軸を固定する値)
@@ -42,10 +51,15 @@ def _instantiate(font: TTFont, axes: dict[str, float]) -> TTFont:
     return instancer.instantiateVariableFont(font, axes, inplace=False)
 
 
-def build(name: str, source: str, axes: dict[str, float]) -> tuple[int, int]:
-    src = SOURCE_FONTS / source
+def build(name: str, source: str, axes: dict[str, float],
+          source_dir: Path) -> tuple[int, int]:
+    src = source_dir / source
     if not src.is_file():
-        raise SystemExit(f"元フォントがありません: {src}")
+        raise SystemExit(
+            f"元フォントがありません: {src}\n"
+            f"Noto Sans JP の可変フォントを取得して置き、--source-dir か "
+            f"環境変数 {ENV_SOURCE_DIR} でそのディレクトリを指定してください。\n"
+            "https://fonts.google.com/noto/specimen/Noto+Sans+JP")
 
     wanted = required_charset()
     # recalcTimestamp は TTFont 側の属性。Options.recalc_timestamp は
@@ -101,9 +115,20 @@ def build(name: str, source: str, axes: dict[str, float]) -> tuple[int, int]:
     return src.stat().st_size, (OUT_DIR / f"{name}.ttf").stat().st_size
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description="埋め込み用フォントサブセットを作る")
+    p.add_argument("--source-dir", type=Path,
+                   default=Path(os.environ[ENV_SOURCE_DIR])
+                   if os.environ.get(ENV_SOURCE_DIR) else None,
+                   help=f"元フォントのあるディレクトリ（環境変数 {ENV_SOURCE_DIR} でも可）")
+    args = p.parse_args(argv)
+    if args.source_dir is None:
+        raise SystemExit(
+            f"--source-dir か 環境変数 {ENV_SOURCE_DIR} で元フォントの場所を"
+            "指定してください。\nhttps://fonts.google.com/noto/specimen/Noto+Sans+JP")
+
     for name, (source, axes) in TARGETS.items():
-        before, after = build(name, source, axes)
+        before, after = build(name, source, axes, args.source_dir)
         print(f"{name}: {before / 1_048_576:.1f}MB -> {after / 1024:.1f}KB "
               f"({len(required_charset())}文字)")
     return 0

@@ -1,4 +1,4 @@
-"""テスト共通設定。
+"""almanac_calendar のテスト共通設定。
 
 実行時は PYTHONPATH=<repo>/src で `almanac_calendar` パッケージとして import されるため、
 テストでも同じ import 形態に揃える（src. プレフィックスを使わない）。

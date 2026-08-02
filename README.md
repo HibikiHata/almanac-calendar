@@ -6,8 +6,10 @@
 (rokuyō, the 24 solar terms, moon phase, selection days) and public holidays for
 250+ countries.
 
-<img src="tests/golden/stack-all-light.svg" width="312" alt="Calendar, light theme">
-<img src="tests/golden/stack-all-dark.svg" width="312" alt="Calendar, dark theme">
+<img src="tests/golden/en-light.svg" width="312" alt="Calendar, light theme">
+<img src="tests/golden/en-dark.svg" width="312" alt="Calendar, dark theme">
+
+<sub>The default: dates and nothing else. Everything below is opt-in.</sub>
 
 </div>
 
@@ -54,14 +56,29 @@ A complete workflow, including committing the result, is in
 
 ## Gallery
 
-Open [`tests/preview.html`](tests/preview.html) locally to see every combination.
-The images there are the committed golden files — the exact bytes the tests compare
-against, so what you see is what you get.
+**Rokuyō** — the six-day cycle, under each date.
 
-| | |
-|---|---|
-| **Palettes** | `default` (matches GitHub's canvas) · `mono` (no weekday colours) · `washi` (paper and ink) |
-| **Themes** | Every palette ships light and dark |
+<img src="tests/golden/rokuyo-light.svg" width="312" alt="Rokuyō, light theme">
+<img src="tests/golden/rokuyo-dark.svg" width="312" alt="Rokuyō, dark theme">
+
+**Moon phase** — drawn from the real illuminated fraction, not interpolated from the
+moon's age. Here below the annotation line, in the palette's moon colour.
+
+<img src="tests/golden/moon-amber-below-light.svg" width="312" alt="Moon phase, light theme">
+<img src="tests/golden/moon-amber-below-dark.svg" width="312" alt="Moon phase, dark theme">
+
+**Everything at once** — holidays, solar terms and rokuyō stacked, with the `washi`
+palette on the right.
+
+<img src="tests/golden/stack-all-light.svg" width="312" alt="All annotations, light theme">
+<img src="tests/golden/colorized-washi-light.svg" width="312" alt="Washi palette with coloured annotations">
+
+Palettes are `default` (matches GitHub's canvas), `mono` (no weekday colours) and
+`washi` (paper and ink); each ships light and dark.
+
+Open [`tests/preview.html`](tests/preview.html) locally to see every combination. The
+images are the committed golden files — the exact bytes the tests compare against, so
+what you see is what you get.
 
 ## Options
 

