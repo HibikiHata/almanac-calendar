@@ -1,0 +1,6 @@
+# Development only. The render path imports nothing outside the standard library —
+# see docs/verification.md. These are needed to regenerate tables and run tests.
+pytest>=8
+ephem>=4.2            # astronomical instants (gen_koyomi_tables)
+holidays>=0.101       # non-Japanese public holidays (gen_holidays)
+fonttools[woff]>=4.50 # font subsetting (gen_font_subset)

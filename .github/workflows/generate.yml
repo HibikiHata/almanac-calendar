@@ -40,15 +40,23 @@ jobs:
         # main's history. They are then readable at
         #   raw.githubusercontent.com/<owner>/<repo>/output/<file>
         # which serves with max-age=300 and is not proxied through Camo.
+        #
+        # This builds the branch in a scratch repository outside the workspace.
+        # Rewriting the checkout in place (orphan branch + rm -rf) deletes
+        # action.yml along with everything else, and the job's own post-steps
+        # then fail looking for it.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          pub="$(mktemp -d)"
+          cp dist/* "$pub/"
+          cd "$pub"
+          git init -q -b output
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan output
-          git rm -rq --cached . || true
-          find . -maxdepth 1 ! -name . ! -name .git ! -name dist -exec rm -rf {} +
-          mv dist/* .
-          rmdir dist
           git add -A
-          git commit -m "chore: regenerate $(date -u +%Y-%m-%d)" || { echo "no change"; exit 0; }
-          git push --force origin output
+          git commit -q -m "chore: regenerate $(date -u +%Y-%m-%d)"
+          git push -q --force \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
+          echo "published to the output branch"
