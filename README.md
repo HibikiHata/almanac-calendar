@@ -106,6 +106,7 @@ All annotations are **off by default**. A calendar's minimum job is to show date
 | `moon` | `false` | Moon phase drawn in each cell |
 | `moon_age` | `false` | Numeric moon age |
 | `moon_amber` | `false` | Fill the lit face amber instead of the text colour |
+| `moon_position` | `corner` | `corner` sits at the day number's top-right; `below` goes under the annotation line (needs `moon`) |
 | `holidays` | *(none)* | ISO 3166-1 alpha-2 code — `JP`, `US`, `KR`, … |
 | `holiday_names` | `false` | Print the holiday name |
 | `lucky_days` | `false` | Auspicious days (一粒万倍日, 天赦日, …) |

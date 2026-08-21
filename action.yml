@@ -71,6 +71,10 @@ inputs:
     description: "Fill the lit face with the palette's moon colour"
     required: false
     default: "false"
+  moon_position:
+    description: "corner (top-right of the day number) | below (under the annotation line; needs `moon`)"
+    required: false
+    default: "corner"
   holidays:
     description: "ISO 3166-1 alpha-2 country code (JP, US, KR, ...). Empty disables holidays."
     required: false
@@ -134,6 +138,7 @@ runs:
         IN_MOON: ${{ inputs.moon }}
         IN_MOON_AGE: ${{ inputs.moon_age }}
         IN_MOON_AMBER: ${{ inputs.moon_amber }}
+        IN_MOON_POSITION: ${{ inputs.moon_position }}
         IN_HOLIDAYS: ${{ inputs.holidays }}
         IN_HOLIDAY_NAMES: ${{ inputs.holiday_names }}
         IN_LUCKY_DAYS: ${{ inputs.lucky_days }}
@@ -148,6 +153,7 @@ runs:
               --week-start "$IN_WEEK_START"
               --palette "$IN_PALETTE"
               --radius "$IN_RADIUS"
+              --moon-position "$IN_MOON_POSITION"
               --annotation-mode "$IN_ANNOTATION_MODE")
         # `[ ... ] && args+=(...)` is safe under errexit: a command failing inside
         # a && list does not exit the shell unless it follows the final &&.
