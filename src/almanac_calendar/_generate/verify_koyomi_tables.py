@@ -69,10 +69,13 @@ def _fetch(cgi: str, year: int, cache: Path | None = None) -> str:
     with urllib.request.urlopen(request, timeout=30) as response:
         raw = response.read()
     text = raw.decode("euc_jp", "replace")
-    # re.I と \s*> が要る。<SCRIPT> や </script > を残すと、次の行のタグ除去で
-    # 中身だけが本文に混ざる
+    # ブラウザは <SCRIPT> も </script foo> も有効なタグとして扱う。ここで取り逃すと
+    # 次の行のタグ除去がタグ記号だけを消し、スクリプトの中身が本文に混ざる
     text = re.sub(
-        r"<script\b.*?</script\s*>|<style\b.*?</style\s*>", "", text, flags=re.S | re.I
+        r"<script\b.*?</script\b[^>]*>|<style\b.*?</style\b[^>]*>",
+        "",
+        text,
+        flags=re.S | re.I,
     )
     text = html.unescape(re.sub(r"<[^>]+>", "|", text))
     text = re.sub(r"[ 　]+", " ", re.sub(r"\|+", "|", text))
