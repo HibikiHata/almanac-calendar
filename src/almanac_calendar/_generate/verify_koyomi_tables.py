@@ -69,7 +69,8 @@ def _fetch(cgi: str, year: int, cache: Path | None = None) -> str:
     with urllib.request.urlopen(request, timeout=30) as response:
         raw = response.read()
     text = raw.decode("euc_jp", "replace")
-    text = re.sub(r"<script.*?</script>|<style.*?</style>", "", text, flags=re.S)
+    # re.I が要る。大文字の <SCRIPT> を残すと、次の行のタグ除去で中身だけが本文に混ざる
+    text = re.sub(r"<script.*?</script>|<style.*?</style>", "", text, flags=re.S | re.I)
     text = html.unescape(re.sub(r"<[^>]+>", "|", text))
     text = re.sub(r"[ 　]+", " ", re.sub(r"\|+", "|", text))
     if cache is not None:
