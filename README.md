@@ -4,10 +4,11 @@
 
 **A monthly calendar as a deterministic SVG** — with the Japanese almanac layer
 (rokuyō, the 24 solar terms, moon phase, selection days) and public holidays for
-250+ countries.
+9 countries out of the box.
 
-<img src="tests/golden/en-light.svg" width="312" alt="Calendar, light theme">
-<img src="tests/golden/en-dark.svg" width="312" alt="Calendar, dark theme">
+<img src="https://raw.githubusercontent.com/HibikiHata/almanac-calendar/output/calendar-en-light.svg" width="312" alt="This month's calendar, regenerated daily, light theme">
+<img src="https://raw.githubusercontent.com/HibikiHata/almanac-calendar/output/calendar-en-dark.svg" width="312" alt="This month's calendar, regenerated daily, dark theme">
+
 
 <sub>The default: dates and nothing else. Everything below is opt-in.</sub>
 
@@ -217,14 +218,14 @@ mean, is in [`docs/verification.md`](docs/verification.md).
   universal time — cannot be predicted, so instants late in the range drift by up to
   ~2 minutes against other implementations. Two new moons (2074-08 and 2097-01) land
   close enough to midnight that the date differs, which moves a whole month of
-  rokuyō. All 64 events within ±3 minutes of the day boundary are pinned by tests.
+  rokuyō. All 56 events within ±3 minutes of the day boundary are pinned by tests.
 - **Two traditions for 一粒万倍日.** Table Ⅰ (the common modern one) is the default;
   Table Ⅱ, from *Eitai Ōzassho Manreki Taisei*, is selectable.
 
 ## Development
 
 ```bash
-PYTHONPATH=src python3 -m pytest tests -q          # 403 tests
+PYTHONPATH=src python3 -m pytest tests -q          # the full suite
 PYTHONPATH=src python3 tests/preview.py --update   # regenerate goldens + preview
 ```
 
