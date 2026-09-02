@@ -1,0 +1,67 @@
+name: keepalive
+
+# **なぜ必要か**: 公開リポジトリのスケジュールワークフローは、リポジトリの活動が
+# 60日間ないと自動停止する（GitHub公式）。generate.yml は `output` ブランチにしか
+# pushしないため、開発が止まると `main` は動かないまま止まりうる。そうなると
+# 「貼るだけ」で使っている人の画像が静かに凍る。
+#
+# **確実でない部分**: GitHubは「リポジトリの活動」を定義していない。コミットは
+# 数えられるという報告が一致する一方、タグ・Issue・PRは数えられないという報告が
+# ある。デフォルトブランチ以外へのpushが数えられるか、`github-actions[bot]` の
+# コミットが数えられるかは**公式の裏付けがない**。だから観測ではなく、確実に
+# 効く手段（デフォルトブランチへのコミット）で先に手を打つ。
+#
+# 月1回なので年12コミット。履歴のノイズは無視できる。
+
+on:
+  schedule:
+    - cron: "20 3 1 * *"    # 毎月1日 03:20 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only report what would happen; do not commit"
+        type: boolean
+        required: false
+        default: true
+
+# 手動実行と月次実行が重なると main を同時に触ることになる
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record a heartbeat on the default branch
+        # dry_run は **既定 true**。スケジュール実行では入力が空になるので、
+        # そのときだけ false に落とす。手で叩いたときに黙って main を
+        # 書き換えないための安全弁。
+        env:
+          DRY_RUN: ${{ inputs.dry_run == false && 'false' || (github.event_name == 'schedule' && 'false' || 'true') }}
+        run: |
+          set -euo pipefail
+          stamp="$(date -u +%Y-%m-%dT%H:%MZ)"
+          echo "would write: $stamp"
+
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "dry run — nothing was committed."
+            exit 0
+          fi
+
+          # 追記ではなく上書き。追記だと60年後に720行のファイルになる
+          printf '%s\n' \
+            "This file exists only to keep scheduled workflows alive." \
+            "See .github/workflows/keepalive.yml for why." \
+            "last run: $stamp" > .github/keepalive
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/keepalive
+          git commit -q -m "chore: keepalive $stamp"
+          git push -q origin HEAD:"${GITHUB_REF_NAME}"
+          echo "committed."
