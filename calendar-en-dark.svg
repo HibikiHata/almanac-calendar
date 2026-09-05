@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 320" width="312" height="320" role="img">
+  <title>September 2026</title>
+  <desc>September 2026 の月間カレンダー</desc>
+  <style>text{font-family:ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif}</style>
+  <rect x="0" y="0" width="312" height="320" fill="#0d1117" rx="8"/>
+  <text x="156" y="41" fill="#e6edf3" font-size="20" text-anchor="middle" font-weight="600">September 2026</text>
+  <rect x="16" y="54" width="280" height="26" fill="#161b22" rx="4"/>
+  <text x="36" y="72" fill="#ff7b72" font-size="12" text-anchor="middle" font-weight="600">Sun</text>
+  <text x="76" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">Mon</text>
+  <text x="116" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">Tue</text>
+  <text x="156" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">Wed</text>
+  <text x="196" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">Thu</text>
+  <text x="236" y="72" fill="#e6edf3" font-size="12" text-anchor="middle" font-weight="600">Fri</text>
+  <text x="276" y="72" fill="#79c0ff" font-size="12" text-anchor="middle" font-weight="600">Sat</text>
+  <text x="116" y="102" fill="#e6edf3" font-size="15" text-anchor="middle">1</text>
+  <text x="156" y="102" fill="#e6edf3" font-size="15" text-anchor="middle">2</text>
+  <text x="196" y="102" fill="#e6edf3" font-size="15" text-anchor="middle">3</text>
+  <text x="236" y="102" fill="#e6edf3" font-size="15" text-anchor="middle">4</text>
+  <rect x="260" y="83" width="32" height="26" fill="#1f6feb" rx="7" data-today="true"/>
+  <text x="276" y="102" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">5</text>
+  <text x="36" y="136" fill="#ff7b72" font-size="15" text-anchor="middle">6</text>
+  <text x="76" y="136" fill="#e6edf3" font-size="15" text-anchor="middle">7</text>
+  <text x="116" y="136" fill="#e6edf3" font-size="15" text-anchor="middle">8</text>
+  <text x="156" y="136" fill="#e6edf3" font-size="15" text-anchor="middle">9</text>
+  <text x="196" y="136" fill="#e6edf3" font-size="15" text-anchor="middle">10</text>
+  <text x="236" y="136" fill="#e6edf3" font-size="15" text-anchor="middle">11</text>
+  <text x="276" y="136" fill="#79c0ff" font-size="15" text-anchor="middle">12</text>
+  <text x="36" y="170" fill="#ff7b72" font-size="15" text-anchor="middle">13</text>
+  <text x="76" y="170" fill="#e6edf3" font-size="15" text-anchor="middle">14</text>
+  <text x="116" y="170" fill="#e6edf3" font-size="15" text-anchor="middle">15</text>
+  <text x="156" y="170" fill="#e6edf3" font-size="15" text-anchor="middle">16</text>
+  <text x="196" y="170" fill="#e6edf3" font-size="15" text-anchor="middle">17</text>
+  <text x="236" y="170" fill="#e6edf3" font-size="15" text-anchor="middle">18</text>
+  <text x="276" y="170" fill="#79c0ff" font-size="15" text-anchor="middle">19</text>
+  <text x="36" y="204" fill="#ff7b72" font-size="15" text-anchor="middle">20</text>
+  <text x="76" y="204" fill="#e6edf3" font-size="15" text-anchor="middle">21</text>
+  <text x="116" y="204" fill="#e6edf3" font-size="15" text-anchor="middle">22</text>
+  <text x="156" y="204" fill="#e6edf3" font-size="15" text-anchor="middle">23</text>
+  <text x="196" y="204" fill="#e6edf3" font-size="15" text-anchor="middle">24</text>
+  <text x="236" y="204" fill="#e6edf3" font-size="15" text-anchor="middle">25</text>
+  <text x="276" y="204" fill="#79c0ff" font-size="15" text-anchor="middle">26</text>
+  <text x="36" y="238" fill="#ff7b72" font-size="15" text-anchor="middle">27</text>
+  <text x="76" y="238" fill="#e6edf3" font-size="15" text-anchor="middle">28</text>
+  <text x="116" y="238" fill="#e6edf3" font-size="15" text-anchor="middle">29</text>
+  <text x="156" y="238" fill="#e6edf3" font-size="15" text-anchor="middle">30</text>
+</svg>
